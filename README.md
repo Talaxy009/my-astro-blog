@@ -7,7 +7,7 @@
   雪山深处
 </h1>
 
-[![GitHub Actions](https://github.com/Talaxy009/my-astro-blog/actions/workflows/main.yml/badge.svg)](https://github.com/Talaxy009/my-astro-blog/actions)
+[![Netlify Status](https://api.netlify.com/api/v1/badges/1ed8533f-3036-495f-9492-303beab16c85/deploy-status)](https://app.netlify.com/sites/talaxy/deploys)
 
 本站由 [Astro](https://astro.build/) 强力驱动，从 [旧的博客](https://github.com/Talaxy009/my-gatsby-blog/) 发展而来。
 
