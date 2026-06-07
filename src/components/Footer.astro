@@ -1,37 +1,37 @@
 ---
 import Link from './Link.astro';
-import { formatDate, getTimeDiff } from '../utils/dataUtils';
+import BuildTimeFromNow from './BuildTime';
+import { formatDate } from '../utils/dataUtils';
 
-const today = new Date();
+const buildTime = new Date();
 ---
 
 <footer>
 	<Link
 		href="/friends"
-		text="友情链接"
-		icon={{ name: 'material-symbols:diversity-3-rounded' }}
-	/>
+		icon={{ name: 'material-symbols:diversity-3-rounded' }}>友情链接</Link
+	>
 	<Link
 		href="/rss.xml"
-		text="RSS 订阅"
 		target="_blank"
 		title="RSS Feed"
-		icon={{ name: 'material-symbols:rss-feed-rounded' }}
-	/>
+		icon={{ name: 'material-symbols:rss-feed-rounded' }}>RSS 订阅</Link
+	>
 	<Link
-		text={getTimeDiff(today)}
 		target="_blank"
-		title={'本站构建时间：' + formatDate(today)}
+		title={'本站构建时间：' + formatDate(buildTime)}
 		href="https://app.netlify.com/projects/talaxy/deploys"
 		icon={{ name: 'material-symbols:sync-rounded' }}
-	/>
+	>
+		<BuildTimeFromNow client:idle buildTime={buildTime} />
+	</Link>
 	<Link
 		target="_blank"
 		title="CC BY-NC-SA 4.0"
-		text={today.getFullYear() + ' Talaxy'}
 		href="https://creativecommons.org/licenses/by-nc-sa/4.0/"
 		icon={{ name: 'material-symbols:copyright-outline-rounded' }}
-	/>
+		>{buildTime.getFullYear() + ' Talaxy'}</Link
+	>
 </footer>
 <style>
 	footer {

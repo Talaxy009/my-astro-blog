@@ -3,18 +3,17 @@ import { Icon } from 'astro-icon/components';
 
 interface Props {
 	title?: string;
-	text: string;
 	href: string;
 	target?: string;
 	icon: { name: string; class?: string; id?: string };
 }
 
-const { title, text, icon, href, target = '_self' } = Astro.props;
+const { title, icon, href, target = '_self' } = Astro.props;
 ---
 
-<a href={href} target={target} title={title ?? text}>
+<a href={href} target={target} title={title}>
 	<Icon {...icon} class="icon" />
-	{text}
+	<slot />
 </a>
 <style>
 	a {
