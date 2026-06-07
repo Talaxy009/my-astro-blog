@@ -1,0 +1,60 @@
+---
+import Link from './Link.astro';
+import { formatDate, getTimeDiff } from '../utils/dataUtils';
+
+const today = new Date();
+---
+
+<footer>
+	<Link
+		href="/friends"
+		text="友情链接"
+		icon={{ name: 'material-symbols:diversity-3-rounded' }}
+	/>
+	<Link
+		href="/rss.xml"
+		text="RSS 订阅"
+		target="_blank"
+		title="RSS Feed"
+		icon={{ name: 'material-symbols:rss-feed-rounded' }}
+	/>
+	<Link
+		text={getTimeDiff(today)}
+		target="_blank"
+		title={'本站构建时间：' + formatDate(today)}
+		href="https://github.com/Talaxy009/my-gatsby-blog/actions"
+		icon={{ name: 'material-symbols:sync-rounded' }}
+	/>
+	<Link
+		target="_blank"
+		title="CC BY-NC-SA 4.0"
+		text={today.getFullYear() + ' Talaxy'}
+		href="https://creativecommons.org/licenses/by-nc-sa/4.0/"
+		icon={{ name: 'material-symbols:copyright-outline-rounded' }}
+	/>
+</footer>
+<style>
+	footer {
+		display: flex;
+		background-color: var(--surface-container);
+		color: var(--on-surface);
+		padding: 3rem 1rem 1rem;
+		justify-content: center;
+		flex-direction: row;
+		align-items: center;
+		position: relative;
+		text-align: center;
+		font-size: 0.8rem;
+		overflow: hidden;
+		gap: 8px;
+	}
+	footer::before {
+		content: '';
+		background-color: var(--surface);
+		border-radius: 24px;
+		position: absolute;
+		height: 48px;
+		width: 100%;
+		top: -24px;
+	}
+</style>

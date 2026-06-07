@@ -1,0 +1,58 @@
+article {
+	font-size: 1.1em;
+	counter-reset: section;
+}
+
+article p > img {
+	border-radius: 1rem;
+	max-width: 100%;
+	height: auto;
+}
+
+article > h2,
+article > h3,
+article > h4,
+article > h5,
+article > h6 {
+	margin-top: 1.6em;
+	margin-bottom: 0.8em;
+}
+
+article > h2::before,
+article > h3::before,
+article > h4::before,
+article > h5::before,
+article > h6::before {
+	margin-right: 0.4em;
+	color: var(--outline);
+}
+
+article > h2 {
+	counter-reset: subSection;
+}
+
+article > h2::before {
+	counter-increment: section;
+	content: counter(section);
+}
+
+article > h3::before {
+	counter-increment: subSection;
+	content: counter(section) '.' counter(subSection);
+}
+
+p {
+	line-height: 2rem;
+}
+
+li {
+	margin: 2px 0;
+}
+
+li::marker {
+	color: var(--outline);
+}
+
+a.anchor {
+	vertical-align: middle;
+}

@@ -1,0 +1,111 @@
+@font-face {
+	font-family: 'JetBrains Mono';
+	src:
+		url('../assets/fonts/JetBrainsMono-Regular.woff2') format('woff2'),
+		url('../assets/fonts/JetBrainsMono-Regular.ttf') format('truetype');
+	font-weight: normal;
+	font-style: normal;
+}
+
+code {
+	font-family: 'JetBrains Mono', Consolas, monospace;
+}
+
+/* Code blocks */
+.astro-code {
+	border-radius: 18px;
+	margin: 0 -1rem 1.75rem;
+	padding: 1.75em 1.25em 1.25em 1.25em;
+	position: relative;
+}
+
+@media (max-width: 580px) {
+	.astro-code {
+		border-radius: 0;
+	}
+}
+
+:not(pre) > code {
+	background-color: #1e1e1e;
+	color: #d4d4d4;
+	padding: 0.1em;
+	border-radius: 0.4em;
+	white-space: normal;
+}
+
+.astro-code::before {
+	font-family: 'JetBrains Mono', Consolas, monospace;
+	border-radius: 0px 0px 4px 4px;
+	padding: 0.25rem 0.5rem;
+	background: #d9d7e0;
+	position: absolute;
+	text-transform: uppercase;
+	letter-spacing: 0.075em;
+	text-align: right;
+	font-size: 0.9rem;
+	color: #232129;
+	line-height: 1;
+	right: 2rem;
+	top: 0px;
+}
+
+pre[data-language='html']::before {
+	content: 'html';
+	background: #005a9c;
+	color: #ffffff;
+}
+
+pre[data-language='js']::before {
+	content: 'js';
+	background: #f7df1e;
+}
+
+pre[data-language='ts']::before {
+	content: 'ts';
+	background: #294e80;
+	color: #ffffff;
+}
+
+pre[data-language='jsx']::before {
+	content: 'jsx';
+	background: #61dafb;
+}
+
+pre[data-language='tsx']::before {
+	content: 'tsx';
+	background: #294e80;
+	color: #ffffff;
+}
+
+pre[data-language='css']::before {
+	content: 'css';
+	background: #ff9800;
+	color: #ffffff;
+}
+
+pre[data-language='diff']::before {
+	content: 'diff';
+	background: #e6ffed;
+}
+
+pre[data-language='json']::before,
+pre[data-language='json5']::before {
+	content: 'json';
+	background: linen;
+}
+
+pre[data-language='shell']::before {
+	content: 'shell';
+}
+
+pre[data-language='ini']::before {
+	content: 'ini';
+	background: gray;
+	color: #ffffff;
+}
+
+pre[data-language='makefile']::before {
+	content: 'makefile';
+	background: #ef5350;
+	color: #ffffff;
+}

@@ -1,0 +1,117 @@
+/* html 样式 */
+html::-webkit-scrollbar-track {
+	background-color: inherit;
+	border-radius: 8px;
+}
+
+html::-webkit-scrollbar {
+	width: 8px;
+	background-color: inherit;
+}
+
+html::-webkit-scrollbar-thumb {
+	border-radius: 8px;
+	background-color: #009ba1;
+}
+
+html::-webkit-scrollbar-thumb:hover {
+	background-color: #008ba1;
+}
+
+::view-transition-old(root),
+::view-transition-new(root) {
+	animation: none;
+	mix-blend-mode: normal;
+}
+
+::view-transition-old(root) {
+	z-index: 1;
+}
+
+::view-transition-new(root) {
+	z-index: 9999;
+}
+
+a {
+	color: var(--primary);
+	box-shadow: none;
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+hr {
+	border: none;
+	height: 0.6px;
+	background-color: var(--outline);
+}
+
+body {
+	margin: 0;
+	background-color: var(--surface);
+	color: var(--on-surface);
+	--sys-transition: all 100ms 0ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+blockquote {
+	margin-left: -1.75rem;
+	margin-right: 1.75rem;
+	margin-top: 0;
+	padding-bottom: 0;
+	padding-left: 1.42188rem;
+	padding-right: 0;
+	padding-top: 0;
+	margin-bottom: 1.75rem;
+	font-size: 1.20112rem;
+	line-height: 1.75rem;
+	color: var(--on-surface-variant);
+	font-style: italic;
+	border-left: 0.32813rem solid var(--outline);
+}
+
+table {
+	background-color: var(--surface-container);
+	border-collapse: collapse;
+	border-spacing: 0px;
+	border-radius: 12px;
+	overflow: hidden;
+	width: 100%;
+}
+
+tbody tr {
+	border-top: 1px solid var(--outline-variant);
+}
+
+th:nth-child(2n),
+td:nth-child(2n) {
+	background-color: var(--surface-container-low);
+}
+
+th,
+td {
+	padding: 8px;
+}
+
+video {
+	max-width: 100%;
+}
+
+main {
+	margin: auto;
+	max-width: 50rem;
+	padding: 3rem 5rem 0 5rem;
+}
+
+@media (max-width: 780px) {
+	main {
+		padding: 3rem 2rem 0 2rem;
+	}
+}
+
+@media (max-width: 580px) {
+	main {
+		padding: 3rem 1rem 0 1rem;
+	}
+}

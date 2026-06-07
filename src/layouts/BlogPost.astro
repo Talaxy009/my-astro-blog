@@ -1,0 +1,83 @@
+---
+import { Image } from 'astro:assets';
+
+import Waline from '../components/Waline';
+import Footer from '../components/Footer.astro';
+import BaseHead from '../components/BaseHead.astro';
+import DarkModeButton from '../components/DarkModeButton';
+import { formatTime, formatDate } from '../utils/dataUtils';
+
+import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
+
+import type { CollectionEntry } from 'astro:content';
+
+import 'src/styles/article.css';
+import 'src/styles/waline.css';
+import 'src/styles/code.css';
+
+type Props = CollectionEntry<'blogs'> & { minutesRead: number };
+
+const { data, minutesRead, id } = Astro.props;
+const { title, description, img, date, tags } = data;
+---
+
+<!doctype html>
+<html lang="zh-CN">
+	<head>
+		<BaseHead
+			title={title ?? SITE_TITLE}
+			description={description ?? SITE_DESCRIPTION}
+		/>
+		<style>
+			header img {
+				border-radius: 2rem;
+				margin: 1em 0;
+			}
+			.topbar {
+				justify-content: space-between;
+				align-items: center;
+				display: flex;
+				width: 100%;
+			}
+			.topbar a {
+				margin: 12px;
+				font-size: 1.5em;
+				font-weight: bold;
+			}
+			.topbar a:hover {
+				text-decoration: none;
+			}
+		</style>
+	</head>
+	<body>
+		<main>
+			<header class="beer">
+				<div class="topbar">
+					<a href="/">{SITE_TITLE}</a>
+					<DarkModeButton client:load />
+				</div>
+				{img && <Image width={800} height={450} src={img} alt="" />}
+				<h1>{title}</h1>
+				<div class="row vertical-margin">
+					<time datetime={date.toISOString()}>
+						{formatDate(date)}
+					</time>
+					•
+					<span>{formatTime(minutesRead)}</span>
+				</div>
+				<div class="row">
+					{
+						tags.map((tag) => (
+							<button class="chip round">{tag}</button>
+						))
+					}
+				</div>
+			</header>
+			<article>
+				<slot />
+			</article>
+			<Waline client:idle path={`/${id}/`} />
+		</main>
+		<Footer />
+	</body>
+</html>

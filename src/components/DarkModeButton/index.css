@@ -1,0 +1,19 @@
+.dark #sun-icon {
+	display: none;
+}
+
+.light #moon-icon {
+	display: none;
+}
+
+#sun-icon {
+	color: #ff9800;
+}
+
+#moon-icon {
+	color: #ffb74d;
+}
+
+.mode-icon {
+	font-size: 32px;
+}

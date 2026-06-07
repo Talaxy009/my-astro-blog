@@ -1,0 +1,41 @@
+---
+import { Icon } from 'astro-icon/components';
+
+interface Props {
+	title?: string;
+	text: string;
+	href: string;
+	target?: string;
+	icon: { name: string; class?: string; id?: string };
+}
+
+const { title, text, icon, href, target = '_self' } = Astro.props;
+---
+
+<a href={href} target={target} title={title ?? text}>
+	<Icon {...icon} class="icon" />
+	{text}
+</a>
+<style>
+	a {
+		gap: 8px;
+		display: flex;
+		overflow: hidden;
+		align-items: center;
+		border-radius: 1rem;
+		padding: 0.8rem 1rem;
+		text-decoration: none;
+		color: var(--on-surface);
+		transition: var(--sys-transition);
+		-webkit-tap-highlight-color: transparent;
+		background-color: var(--surface-container-high);
+	}
+	a:hover,
+	a:focus,
+	a:active {
+		border-radius: 2rem;
+	}
+	.icon {
+		font-size: 24px;
+	}
+</style>

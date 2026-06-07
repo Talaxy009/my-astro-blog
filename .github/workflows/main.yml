@@ -1,0 +1,68 @@
+name: Build & Deploy
+on:
+    push:
+        branches:
+            - 'main'
+    pull_request:
+    workflow_dispatch:
+
+permissions:
+    contents: read
+
+concurrency:
+    group: ${{ github.workflow }}-${{ github.ref }}
+    cancel-in-progress: true
+
+jobs:
+    build:
+        runs-on: ubuntu-24.04
+        steps:
+            - name: Checkout
+              uses: actions/checkout@v4
+              with:
+                  fetch-depth: 0
+
+            - name: Setup node
+              uses: actions/setup-node@v4
+              with:
+                  node-version: 22
+                  cache: 'yarn'
+                  cache-dependency-path: yarn.lock
+
+            - name: Enable corepack
+              run: corepack enable
+
+            - name: Install dependencies
+              run: yarn install --immutable
+
+            - name: Build site
+              run: yarn build
+
+            - name: Upload build artifact
+              uses: actions/upload-artifact@v4
+              with:
+                  name: dist
+                  path: ./dist
+                  if-no-files-found: error
+
+    deploy:
+        needs: build
+        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+        runs-on: ubuntu-24.04
+        steps:
+            - name: Download build artifact
+              uses: actions/download-artifact@v4
+              with:
+                  name: dist
+                  path: ./dist
+
+            - name: Deploy to Netlify
+              uses: nwtgck/actions-netlify@v3
+              with:
+                  publish-dir: './dist'
+                  production-branch: main
+                  deploy-message: ${{ github.event.head_commit.message }}
+              env:
+                  NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+                  NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
+              timeout-minutes: 10

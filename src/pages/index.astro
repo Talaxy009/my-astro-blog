@@ -1,0 +1,39 @@
+---
+import { getCollection, render } from 'astro:content';
+
+import BaseHead from '../components/BaseHead.astro';
+import Footer from '../components/Footer.astro';
+import Banner from '../components/Banner.astro';
+import PostList from '../components/PostList';
+
+import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
+import { getPostGroup } from '../utils/dataUtils';
+
+const posts = await Promise.all(
+	(await getCollection('blogs'))
+		.sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
+		.map(async (item) => {
+			const { remarkPluginFrontmatter } = await render(item);
+			return {
+				id: item.id,
+				...item.data,
+				minutesRead: remarkPluginFrontmatter.minutesRead,
+			};
+		}),
+);
+const { tags, postMap } = getPostGroup(posts, 6);
+---
+
+<!doctype html>
+<html lang="zh-CN">
+	<head>
+		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+	</head>
+	<body>
+		<main>
+			<Banner />
+			<PostList client:load postMap={postMap} tags={tags} />
+		</main>
+		<Footer />
+	</body>
+</html>

@@ -1,0 +1,112 @@
+---
+import X from 'simple-icons-astro/X';
+import Github from 'simple-icons-astro/Github';
+import Pixiv from 'simple-icons-astro/Pixiv';
+import Youtube from 'simple-icons-astro/Youtube';
+import Telegram from 'simple-icons-astro/Telegram';
+
+type Site = 'x' | 'github' | 'pixiv' | 'youtube' | 'telegram';
+
+interface Props {
+	id: string;
+	site: Site;
+	name: string;
+}
+
+const links = {
+	x: {
+		name: 'X / Twitter',
+		url: 'https://x.com/',
+		icon: X,
+	},
+	github: {
+		name: 'GitHub',
+		url: 'https://github.com/',
+		icon: Github,
+	},
+	pixiv: {
+		name: 'Pixiv',
+		url: 'https://pixiv.me/',
+		icon: Pixiv,
+	},
+	youtube: {
+		name: 'YouTube',
+		url: 'https://www.youtube.com/@',
+		icon: Youtube,
+	},
+	telegram: {
+		name: 'Telegram',
+		url: 'https://t.me/',
+		icon: Telegram,
+	},
+};
+
+const { id, site, name } = Astro.props;
+const link = links[site];
+const Icon = link.icon;
+---
+
+<a rel="nofollow" target="_blank" title={link.name} href={link.url + id}>
+	<Icon id={'ic-' + site} size={28} />
+	<div class="link-content">
+		<span class="link-site">{link.name}</span>
+		<span class="link-user">{name}</span>
+	</div>
+</a>
+
+<style>
+	a {
+		display: flex;
+		padding: 0.8rem 1rem;
+		overflow: hidden;
+		align-items: center;
+		border-radius: 1rem;
+		text-decoration: none;
+		transition: var(--sys-transition);
+		color: var(--on-surface);
+		background-color: var(--surface-container-high);
+	}
+	svg {
+		border-radius: 0;
+	}
+	a:hover,
+	a:focus,
+	a:active {
+		border-radius: 2rem;
+		text-decoration: none;
+	}
+	.link-content {
+		display: flex;
+		flex-direction: column;
+		margin-left: 0.6rem;
+	}
+	.link-site {
+		font-weight: bold;
+		color: var(--primary);
+	}
+	.link-user {
+		font-size: 0.8em;
+	}
+	#ic-x {
+		color: #000000;
+	}
+	#ic-github {
+		color: #181717;
+	}
+	#ic-pixiv {
+		color: #0096fa;
+	}
+	#ic-youtube {
+		color: #ff0000;
+	}
+	#ic-telegram {
+		color: #26a5e4;
+	}
+</style>
+
+<style is:global>
+	.dark #ic-github,
+	.dark #ic-x {
+		color: #ffffff;
+	}
+</style>

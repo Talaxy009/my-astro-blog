@@ -1,0 +1,44 @@
+---
+import BaseHead from '../components/BaseHead.astro';
+import Footer from '../components/Footer.astro';
+import Banner from '../components/Banner.astro';
+import Waline from '../components/Waline';
+
+import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
+
+import type { MarkdownLayoutProps } from 'astro';
+
+import 'src/styles/article.css';
+import 'src/styles/waline.css';
+import 'src/styles/code.css';
+
+type Props = MarkdownLayoutProps<{
+	title: string;
+	description: string;
+}>;
+
+const { frontmatter } = Astro.props;
+
+const { title, description } = frontmatter;
+
+const pathname = Astro.url.pathname;
+const path = pathname.endsWith('/') ? pathname : pathname + '/';
+---
+
+<!doctype html>
+<html lang="zh-CN">
+	<head>
+		<BaseHead
+			title={title ?? SITE_TITLE}
+			description={description ?? SITE_DESCRIPTION}
+		/>
+	</head>
+	<body>
+		<main>
+			<Banner title={title} description={description} />
+			<slot />
+			<Waline client:idle path={path} />
+		</main>
+		<Footer />
+	</body>
+</html>

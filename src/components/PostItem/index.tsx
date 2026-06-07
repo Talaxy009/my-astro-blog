@@ -1,0 +1,51 @@
+import { Icon } from '@iconify/react';
+
+import { formatDate, formatTime } from '../../utils/dataUtils';
+
+import './index.css';
+
+type Props = {
+	post?: Post;
+};
+
+export default function PostItem({ post }: Props) {
+	if (!post) return null;
+
+	const link = `/${post.id}`;
+
+	return (
+		<a href={link} className="post-item-body">
+			<div className="post-item-img">
+				<img
+					className="responsive"
+					src={post.img?.src}
+					alt={post.title}
+				/>
+			</div>
+			<div className="post-item-content">
+				<h3>{post.title}</h3>
+				<nav>
+					<button className="chip round">
+						<Icon
+							inline
+							className="responsive"
+							icon="material-symbols:calendar-month"
+						/>
+						<time dateTime={post.date.toISOString()}>
+							{formatDate(post.date)}
+						</time>
+					</button>
+					<button className="chip round">
+						<Icon
+							inline
+							className="responsive"
+							icon="material-symbols:nest-clock-farsight-analog-outline-rounded"
+						/>
+						{formatTime(post.minutesRead)}
+					</button>
+				</nav>
+				<p>{post.description}</p>
+			</div>
+		</a>
+	);
+}
