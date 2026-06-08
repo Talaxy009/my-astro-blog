@@ -9,14 +9,18 @@ const buildTime = new Date();
 <footer>
 	<Link
 		href="/friends"
-		icon={{ name: 'material-symbols:diversity-3-rounded' }}>友情链接</Link
+		icon={{ name: 'material-symbols:diversity-3-rounded' }}
 	>
+		友情链接
+	</Link>
 	<Link
 		href="/rss.xml"
 		target="_blank"
 		title="RSS Feed"
-		icon={{ name: 'material-symbols:rss-feed-rounded' }}>RSS 订阅</Link
+		icon={{ name: 'material-symbols:rss-feed-rounded' }}
 	>
+		RSS 订阅
+	</Link>
 	<Link
 		target="_blank"
 		title={'本站构建时间：' + formatDate(buildTime)}
@@ -30,12 +34,14 @@ const buildTime = new Date();
 		title="CC BY-NC-SA 4.0"
 		href="https://creativecommons.org/licenses/by-nc-sa/4.0/"
 		icon={{ name: 'material-symbols:copyright-outline-rounded' }}
-		>{buildTime.getFullYear() + ' Talaxy'}</Link
 	>
+		{buildTime.getFullYear() + ' Talaxy'}
+	</Link>
 </footer>
 <style>
 	footer {
 		display: flex;
+		flex-wrap: wrap;
 		background-color: var(--surface-container);
 		color: var(--on-surface);
 		padding: 3rem 1rem 1rem;
