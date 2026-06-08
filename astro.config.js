@@ -8,9 +8,9 @@ import { unified } from '@astrojs/markdown-remark';
 import { defineConfig } from 'astro/config';
 import remarkGfm from 'remark-gfm';
 
-import remarkReadingTime from './plugins/remark-reading-time.mjs';
-import remarkTweetCard from './plugins/remark-tweet-card.mjs';
-import remarkLinkCard from './plugins/remark-link-card.mjs';
+import remarkReadingTime from './plugins/remark-reading-time.js';
+import remarkTweetCard from './plugins/remark-tweet-card.js';
+import remarkLinkCard from './plugins/remark-link-card.js';
 
 // https://astro.build/config
 export default defineConfig({
