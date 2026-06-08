@@ -306,12 +306,11 @@ const INFO_ICON_SVG = `<svg class="tweet-card-info-icon" viewBox="0 0 24 24" ari
 /**
  * Build the full tweet card HTML.
  * @param {object} tweet
- * @param {string} originalUrl
  * @returns {string}
  */
-function buildTweetHTML(tweet, originalUrl) {
+function buildTweetHTML(tweet) {
 	const tweetUrl = `https://x.com/${tweet.user.screen_name}/status/${tweet.id_str}`;
-	const avatarUrl = escapeAttr(tweet.user.profile_image_url_https || '');
+	const avatarUrl = escapeAttr((tweet.user.profile_image_url_https || '').replace('_normal', '_200x200'));
 	const verified = tweet.user.is_blue_verified || tweet.user.verified;
 	const name = escapeAttr(tweet.user.name);
 	const screenName = tweet.user.screen_name;
@@ -402,7 +401,7 @@ export default function remarkTweetCard() {
 			const { tweet, url } = results[i];
 			parent.children[index] = {
 				type: 'html',
-				value: tweet ? buildTweetHTML(tweet, url) : buildErrorHTML(url),
+				value: tweet ? buildTweetHTML(tweet) : buildErrorHTML(url),
 			};
 		}
 	};
