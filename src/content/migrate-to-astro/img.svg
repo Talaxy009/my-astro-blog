@@ -1,0 +1,50 @@
+<svg width="1600" height="900" viewBox="0 0 1600 900" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="hero" x1="975" y1="218" x2="1268" y2="558" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#D8B4FE"/>
+      <stop offset="0.5" stop-color="#BC52EE"/>
+      <stop offset="1" stop-color="#FF7F62"/>
+    </linearGradient>
+    <linearGradient id="orbit" x1="877" y1="330" x2="1155" y2="330" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#8B79A5"/>
+      <stop offset="1" stop-color="#B08CB5"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1600" height="900" fill="#F6E8E9"/>
+
+  <circle cx="220" cy="156" r="168" fill="#FFF6FE"/>
+  <circle cx="1414" cy="156" r="124" fill="#F1D7DA"/>
+  <circle cx="1450" cy="764" r="170" fill="#EED1CB"/>
+  <circle cx="1188" cy="704" r="88" fill="#F4E2E9"/>
+
+  <rect x="258" y="184" width="1084" height="532" rx="64" fill="#FEF7FB"/>
+
+  <rect x="362" y="312" width="258" height="302" rx="36" fill="#EADBE9"/>
+  <rect x="410" y="272" width="258" height="302" rx="36" fill="#F5E7EC"/>
+  <rect x="458" y="232" width="258" height="302" rx="36" fill="#FFF7FA"/>
+
+  <rect x="520" y="312" width="128" height="18" rx="9" fill="#B793C0"/>
+  <rect x="520" y="392" width="96" height="18" rx="9" fill="#D9A7A4"/>
+  <rect x="520" y="472" width="142" height="18" rx="9" fill="#B793C0"/>
+
+  <path d="M742 462C840 462 880 354 956 330C1001 316 1049 318 1108 318" stroke="url(#orbit)" stroke-width="18" stroke-linecap="round"/>
+  <circle cx="954" cy="330" r="26" fill="#FFAB78"/>
+
+  <circle cx="1130" cy="330" r="154" fill="#F9EEF8"/>
+  <circle cx="1130" cy="330" r="124" fill="url(#hero)"/>
+
+  <g transform="translate(1045 250) scale(7.3)">
+    <path d="M8.358 20.162c-1.186-1.07-1.532-3.316-1.038-4.944.856 1.026 2.043 1.352 3.272 1.535 1.897.283 3.76.177 5.522-.678.202-.098.388-.229.608-.36.166.473.209.95.151 1.437-.14 1.185-.738 2.1-1.688 2.794-.38.277-.782.525-1.175.787-1.205.804-1.531 1.747-1.078 3.119l.044.148a3.158 3.158 0 0 1-1.407-1.188 3.31 3.31 0 0 1-.544-1.815c-.004-.32-.004-.642-.048-.958-.106-.769-.472-1.113-1.161-1.133-.707-.02-1.267.411-1.415 1.09-.012.053-.028.104-.045.165h.002zm-5.961-4.445s3.24-1.575 6.49-1.575l2.451-7.565c.092-.366.36-.614.662-.614.302 0 .57.248.662.614l2.45 7.565c3.85 0 6.491 1.575 6.491 1.575L16.088.727C15.93.285 15.663 0 15.303 0H8.697c-.36 0-.615.285-.784.727l-5.516 14.99z" fill="#FFF8F4"/>
+  </g>
+
+  <rect x="1000" y="560" width="216" height="56" rx="28" fill="#F2E4EC"/>
+  <circle cx="1038" cy="588" r="14" fill="#BC52EE"/>
+  <rect x="1068" y="579" width="96" height="18" rx="9" fill="#CFA3AE"/>
+
+  <rect x="1226" y="248" width="76" height="76" rx="24" fill="#F6E7EC"/>
+  <circle cx="1264" cy="286" r="18" fill="#FF8E70"/>
+
+  <rect x="1242" y="558" width="68" height="68" rx="22" fill="#EBCFD8"/>
+  <rect x="1261" y="577" width="30" height="30" rx="10" fill="#FFF2F5"/>
+</svg>
