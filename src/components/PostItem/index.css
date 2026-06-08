@@ -29,11 +29,19 @@
 	text-align: left;
 }
 
+.post-item-content h3 {
+	margin: 0.8rem 0;
+}
+
 .post-item-content p {
 	color: var(--on-surface);
 }
 
 @media (max-width: 700px) {
+	.post-item-content {
+		padding-top: 0;
+	}
+
 	.post-item-body {
 		flex-direction: column;
 	}

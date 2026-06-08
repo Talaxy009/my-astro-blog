@@ -109,3 +109,9 @@ pre[data-language='makefile']::before {
 	background: #ef5350;
 	color: #ffffff;
 }
+
+pre[data-language='astro']::before {
+	content: 'astro';
+	background: #e43a99;
+	color: #ffffff;
+}
