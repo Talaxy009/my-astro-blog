@@ -275,12 +275,35 @@
 	font-size: 0.9375rem;
 	line-height: 1.375rem;
 	color: var(--on-surface);
-	margin: 0;
+	margin: 0 0 0.5rem;
 	display: -webkit-box;
 	-webkit-line-clamp: 4;
 	-webkit-box-orient: vertical;
 	overflow: hidden;
 	word-break: break-word;
+}
+
+/* Quoted tweet media — reuses .tweet-card-media structure, overrides sizing */
+.tweet-card-quoted-media-wrap {
+	margin-top: 0.5rem;
+	margin-bottom: 0;
+	border-radius: 8px;
+}
+
+.tweet-card-quoted-media-wrap .tweet-card-media-single .tweet-card-media-img {
+	max-height: 200px;
+}
+
+.tweet-card-quoted-media-wrap .tweet-card-media-grid .tweet-card-media-img {
+	height: 110px;
+}
+
+.tweet-card-quoted-media-wrap .tweet-card-media-grid-3 .tweet-card-media-img:first-child {
+	height: 150px;
+}
+
+.tweet-card-quoted-media-wrap .tweet-card-media-video .tweet-card-media-img {
+	max-height: 200px;
 }
 
 /* ── Info row ────────────────────────────────────────────── */
