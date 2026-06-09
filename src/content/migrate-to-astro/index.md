@@ -26,7 +26,7 @@ img: 'img.svg'
 
 ### 状态管理——Nano Stores
 
-Astro 是“群岛架构”，每个岛屿或者说每个组件之间都是不互通的，因此像 React Context 这样的全局状态管理就用不了了，Astro 官方推荐的解决办法是 Nano Stores。
+Astro 是“群岛架构”，每个岛屿或者说每个组件之间都是不互通的，因此像 React Context 这样的全局状态管理就用不了了，Astro 官方推荐的解决办法是 Nano Stores。顺带一提，他家的文档中文做得挺全的，加分！
 
 [$card](https://docs.astro.build/zh-cn/recipes/sharing-state-islands/)
 
