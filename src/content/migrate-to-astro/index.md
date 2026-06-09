@@ -3,7 +3,7 @@ title: 关于迁移到 Astro 这件事
 date: '2026-06-08T11:06:21+08:00'
 description: '为啥迁移，以及期间遇到的问题和解决方案'
 tags: ['技术']
-img: 'img.jpg'
+img: 'img.svg'
 ---
 
 ## 为啥迁移

@@ -14,9 +14,15 @@ const posts = await Promise.all(
 		.sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
 		.map(async (item) => {
 			const { remarkPluginFrontmatter } = await render(item);
+			const img = item.data.img;
 			return {
 				id: item.id,
 				...item.data,
+				// Normalize img to a plain object to avoid serialization issues
+				// with SVG images (Astro wraps SVG images in a function via createSvgComponent)
+				img: img
+					? { src: img.src, width: img.width, height: img.height, format: img.format }
+					: undefined,
 				minutesRead: remarkPluginFrontmatter.minutesRead,
 			};
 		}),
