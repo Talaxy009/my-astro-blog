@@ -33,6 +33,7 @@ export default defineConfig({
 
 	image: {
 		layout: 'constrained',
+		responsiveStyles: true,
 	},
 
 	adapter: netlify(),
