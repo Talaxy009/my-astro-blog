@@ -1,4 +1,4 @@
-import React from 'react';
+import { useRef } from 'react';
 import { useStore } from '@nanostores/react';
 
 import PostItem from '../PostItem';
@@ -14,7 +14,7 @@ type Props = {
 };
 
 export default function PostList({ postMap, tags }: Props) {
-	const ref = React.useRef<HTMLDivElement>(null);
+	const ref = useRef<HTMLDivElement>(null);
 	const page = useStore(pageIndex);
 	const menu = useStore(menuIndex);
 
