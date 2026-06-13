@@ -52,7 +52,7 @@ export default function DarkModeButton() {
 
 	return (
 		<button
-			className="chip circle large no-border no-margin "
+			className="chip circle large no-border no-margin"
 			onClick={handleClick}
 		>
 			<Icon
@@ -66,7 +66,7 @@ export default function DarkModeButton() {
 				icon="material-symbols:light-mode-rounded"
 			/>
 			<div className="tooltip bottom">
-				{mode ? '关闭' : '打开'}夜间模式
+				{mode === 'dark' ? '关闭' : '打开'}夜间模式
 			</div>
 		</button>
 	);

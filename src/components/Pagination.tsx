@@ -50,7 +50,8 @@ export default function Pagination({
 							onClick={() => onChange(pageNum)}
 							className={
 								'round' + (pageNum === value ? ' fill' : '')
-							}>
+							}
+						>
 							{pageNum}
 						</button>
 					</Fragment>

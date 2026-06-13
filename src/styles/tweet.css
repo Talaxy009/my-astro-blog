@@ -298,7 +298,9 @@
 	height: 110px;
 }
 
-.tweet-card-quoted-media-wrap .tweet-card-media-grid-3 .tweet-card-media-img:first-child {
+.tweet-card-quoted-media-wrap
+	.tweet-card-media-grid-3
+	.tweet-card-media-img:first-child {
 	height: 150px;
 }
 

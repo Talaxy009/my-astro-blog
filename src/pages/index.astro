@@ -21,7 +21,12 @@ const posts = await Promise.all(
 				// Normalize img to a plain object to avoid serialization issues
 				// with SVG images (Astro wraps SVG images in a function via createSvgComponent)
 				img: img
-					? { src: img.src, width: img.width, height: img.height, format: img.format }
+					? {
+							src: img.src,
+							width: img.width,
+							height: img.height,
+							format: img.format,
+						}
 					: undefined,
 				minutesRead: remarkPluginFrontmatter.minutesRead,
 			};
