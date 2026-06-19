@@ -6,6 +6,8 @@ type Props = {
 
 export default function BuildTimeFromNow({ buildTime }: Props) {
 	return (
-		<time dateTime={buildTime.toISOString()}>{getTimeDiff(buildTime)}</time>
+		<time dateTime={buildTime.toISOString()} suppressHydrationWarning>
+			{getTimeDiff(buildTime)}
+		</time>
 	);
 }
