@@ -115,3 +115,10 @@ pre[data-language='astro']::before {
 	background: #e43a99;
 	color: #ffffff;
 }
+
+pre[data-language='yml']::before,
+pre[data-language='yaml']::before {
+	content: 'yml';
+	background: #7b42bc;
+	color: #ffffff;
+}
