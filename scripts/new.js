@@ -39,7 +39,7 @@ function createPost(slug) {
 		`date: '${getLocalISOString()}'`,
 		"description: ''",
 		'tags: []',
-		"img: 'img.jpg'",
+		"img: 'img.svg'",
 		'---',
 		'',
 	].join('\n');

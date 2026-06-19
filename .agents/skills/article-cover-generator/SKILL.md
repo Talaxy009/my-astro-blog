@@ -22,7 +22,7 @@ argument-hint: '文章路径和封面要求，例如：src/content/foo/index.md�
     - 扁平化
     - 极简风格
     - 柔和的 Material You 配色
-    - 保留 `img.svg` 源文件，并导出 `img.jpg`
+    - 保留 `img.svg` 源文件
 
 3. 获取文章主题。
    从文章内容中提取关键词，或者根据文章的标签和分类推断主题相关的视觉符号。
@@ -33,14 +33,12 @@ argument-hint: '文章路径和封面要求，例如：src/content/foo/index.md�
 5. 用户确认。
    提示用户查看已生成的 `img.svg`，如果需要调整，继续修改直到用户满意。
 
-6. 导出最终封面。
-   使用项目自带的 `sharp` 将 svg 导出为 jpg 或 png，并确保文章 frontmatter 中引用的路径正确指向导出的文件。
-
 ## 注意事项
 
 - 文章位于 `src/content/<slug>/`
 - 可维护的矢量源文件应保存在文章目录下，命名为 `img.svg`
 - 如果文章已经引用 `img.jpg`，不要主动修改 frontmatter，除非用户明确要求。
+- 如果需要导出其他格式文件，使用项目自带的 `sharp` 将 svg 导出为 jpg 或 png，并确保文章 frontmatter 中引用的路径正确指向导出的文件。
 - 如果只是小问题，不要重做整张图。
 - 如果问题是视觉平衡，优先调整位移和缩放，再考虑重做构图。
 - 如果配色不够贴近主色调，就把附近颜色收敛，同时保留 Material You 的柔和感。
