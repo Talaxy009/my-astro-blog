@@ -1,0 +1,50 @@
+<svg width="1600" height="900" viewBox="0 0 1600 900" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1600" y2="900" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#E8F4FD"/>
+      <stop offset="0.5" stop-color="#D3E8FA"/>
+      <stop offset="1" stop-color="#B8D9F7"/>
+    </linearGradient>
+    <linearGradient id="bubble" x1="800" y1="300" x2="800" y2="700" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#4E9DEF"/>
+      <stop offset="1" stop-color="#2D7DD2"/>
+    </linearGradient>
+    <linearGradient id="tail" x1="620" y1="580" x2="650" y2="640" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#2D7DD2"/>
+      <stop offset="1" stop-color="#1A5FA8"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="6" stdDeviation="12" flood-color="#2D7DD2" flood-opacity="0.3"/>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1600" height="900" fill="url(#bg)"/>
+
+  <!-- Decorative circles -->
+  <circle cx="180" cy="140" r="160" fill="rgba(78, 157, 239, 0.08)"/>
+  <circle cx="1420" cy="160" r="120" fill="rgba(78, 157, 239, 0.06)"/>
+  <circle cx="1480" cy="760" r="180" fill="rgba(78, 157, 239, 0.07)"/>
+
+  <!-- Card background -->
+  <rect x="280" y="180" width="1040" height="540" rx="60" fill="rgba(255, 255, 255, 0.7)"/>
+
+  <!-- Main chat bubble -->
+  <g transform="translate(800, 430)">
+    <!-- Bubble tail (behind bubble body) -->
+    <path d="M-119 95 L-155 148 L-66 125 Z" fill="url(#tail)" stroke="url(#tail)" stroke-width="4" stroke-linejoin="round"/>
+
+    <!-- Bubble shadow -->
+    <rect x="-160" y="-130" width="320" height="260" rx="130" fill="rgba(45, 125, 210, 0.25)" filter="url(#shadow)"/>
+
+    <!-- Bubble body (pill shape) -->
+    <rect x="-160" y="-130" width="320" height="260" rx="130" fill="url(#bubble)"/>
+
+    <!-- 3 message lines -->
+    <g opacity="0.85">
+      <rect x="-100" y="-55" width="200" height="18" rx="9" fill="white"/>
+      <rect x="-100" y="-11" width="170" height="18" rx="9" fill="white"/>
+      <rect x="-100" y="33" width="185" height="18" rx="9" fill="white"/>
+    </g>
+  </g>
+</svg>
