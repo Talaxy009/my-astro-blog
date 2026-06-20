@@ -1,4 +1,4 @@
-import { getTimeDiff } from '../utils/dataUtils';
+import { getTimeDiff, toISOString } from '../utils/dataUtils';
 
 type Props = {
 	buildTime: Date;
@@ -6,6 +6,6 @@ type Props = {
 
 export default function BuildTimeFromNow({ buildTime }: Props) {
 	return (
-		<time dateTime={buildTime.toISOString()}>{getTimeDiff(buildTime)}</time>
+		<time dateTime={toISOString(buildTime)}>{getTimeDiff(buildTime)}</time>
 	);
 }

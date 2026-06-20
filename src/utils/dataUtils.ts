@@ -29,6 +29,15 @@ export function formatDate(date: Date): string {
 }
 
 /**
+ * 将日期转换为 ISO 字符串
+ * @param {Date} date
+ * @returns ISO 字符串
+ */
+export function toISOString(date: Date): string {
+	return dayjs(date).toISOString();
+}
+
+/**
  * 计算时间差
  * @param {Date} date
  * @returns 时间差

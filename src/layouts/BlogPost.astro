@@ -5,7 +5,7 @@ import Waline from '../components/Waline';
 import Footer from '../components/Footer.astro';
 import BaseHead from '../components/BaseHead.astro';
 import DarkModeButton from '../components/DarkModeButton';
-import { formatTime, formatDate } from '../utils/dataUtils';
+import { formatTime, formatDate, toISOString } from '../utils/dataUtils';
 
 import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 
@@ -60,7 +60,7 @@ const { title, description, img, date, tags } = data;
 				{img && <Image width={800} height={450} src={img} alt="" />}
 				<h1>{title}</h1>
 				<div class="row vertical-margin">
-					<time datetime={date.toISOString()}>
+					<time datetime={toISOString(date)}>
 						{formatDate(date)}
 					</time>
 					•
