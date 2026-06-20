@@ -927,14 +927,23 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@iconify/react@npm:^6.0.2":
-  version: 6.0.2
-  resolution: "@iconify/react@npm:6.0.2"
+"@iconify-react/material-symbols@npm:^1.0.21":
+  version: 1.0.21
+  resolution: "@iconify-react/material-symbols@npm:1.0.21"
+  dependencies:
+    "@iconify/css-react": "npm:^1.0.1"
+  checksum: 10c0/d93f3b3e0df0cc795ff7d032737b699f76357d3df79b6d54387f865d6209eca732670303bb10b3e7260619fc452f7b28c125379f9952c677283494bfe0d47141
+  languageName: node
+  linkType: hard
+
+"@iconify/css-react@npm:^1.0.1":
+  version: 1.0.2
+  resolution: "@iconify/css-react@npm:1.0.2"
   dependencies:
     "@iconify/types": "npm:^2.0.0"
   peerDependencies:
-    react: ">=16"
-  checksum: 10c0/1f53f588361d658c6f077fefcc31d52f6f5d375f06b63dd13cc73b71fd28cf9409edece921ea8fa5195a79d02ff9162aff8472c14e858c0178067eecc3128460
+    react: ">=18.0.0"
+  checksum: 10c0/7f277dc23cc31e8b12ab25cdabc5fc1d3e8208c31cd7fea1eb54d377e853a090ba523a4bafdd96d7a8d58be9367a5910566e1dc108522a72b878c2d7b71accb1
   languageName: node
   linkType: hard
 
@@ -8285,7 +8294,7 @@ __metadata:
     "@astrojs/rss": "npm:4.0.18"
     "@astrojs/sitemap": "npm:3.7.3"
     "@iconify-json/material-symbols": "npm:^1.2.76"
-    "@iconify/react": "npm:^6.0.2"
+    "@iconify-react/material-symbols": "npm:^1.0.21"
     "@nanostores/react": "npm:^1.1.0"
     "@types/react": "npm:^19.2.17"
     "@types/react-dom": "npm:^19.2.3"

@@ -1,4 +1,5 @@
-import { Icon } from '@iconify/react';
+import CalendarIcon from '@iconify-react/material-symbols/calendar-month-outline-rounded';
+import ClockIcon from '@iconify-react/material-symbols/nest-clock-farsight-analog-outline-rounded';
 
 import { formatDate, formatTime } from '../../utils/dataUtils';
 
@@ -26,21 +27,13 @@ export default function PostItem({ post }: Props) {
 				<h3>{post.title}</h3>
 				<nav>
 					<button className="chip round">
-						<Icon
-							inline
-							className="responsive"
-							icon="material-symbols:calendar-month"
-						/>
+						<CalendarIcon className="responsive" />
 						<time dateTime={post.date.toISOString()}>
 							{formatDate(post.date)}
 						</time>
 					</button>
 					<button className="chip round">
-						<Icon
-							inline
-							className="responsive"
-							icon="material-symbols:nest-clock-farsight-analog-outline-rounded"
-						/>
+						<ClockIcon className="responsive" />
 						{formatTime(post.minutesRead)}
 					</button>
 				</nav>

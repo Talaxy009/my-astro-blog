@@ -1,6 +1,7 @@
 import { useEffect } from 'react';
-import { Icon } from '@iconify/react';
 import { useStore } from '@nanostores/react';
+import DarkModeIcon from '@iconify-react/material-symbols/dark-mode-rounded';
+import LightModeIcon from '@iconify-react/material-symbols/light-mode-rounded';
 
 import { theme } from 'src/store';
 
@@ -55,16 +56,8 @@ export default function DarkModeButton() {
 			className="chip circle large no-border no-margin"
 			onClick={handleClick}
 		>
-			<Icon
-				id="moon-icon"
-				className="mode-icon"
-				icon="material-symbols:dark-mode-rounded"
-			/>
-			<Icon
-				id="sun-icon"
-				className="mode-icon"
-				icon="material-symbols:light-mode-rounded"
-			/>
+			<DarkModeIcon id="moon-icon" />
+			<LightModeIcon id="sun-icon" />
 			<div className="tooltip bottom">
 				{mode === 'dark' ? '关闭' : '打开'}夜间模式
 			</div>
