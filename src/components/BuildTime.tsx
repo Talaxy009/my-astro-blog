@@ -1,3 +1,5 @@
+import { useEffect, useState } from 'react';
+
 import { getTimeDiff, toISOString } from '../utils/dataUtils';
 
 type Props = {
@@ -5,7 +7,11 @@ type Props = {
 };
 
 export default function BuildTimeFromNow({ buildTime }: Props) {
-	return (
-		<time dateTime={toISOString(buildTime)}>{getTimeDiff(buildTime)}</time>
-	);
+	const [timeStr, setTimeStr] = useState('几秒前');
+
+	useEffect(() => {
+		setTimeStr(getTimeDiff(buildTime));
+	}, [buildTime]);
+
+	return <time dateTime={toISOString(buildTime)}>{timeStr}</time>;
 }
