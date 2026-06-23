@@ -11,18 +11,24 @@ code {
 	font-family: 'JetBrains Mono', Consolas, monospace;
 }
 
-/* Code blocks */
-.astro-code {
-	border-radius: 18px;
+/* Code block wrapper */
+.code-wrapper {
+	border-radius: 1rem;
 	margin: 0 -1rem 1.75rem;
-	padding: 1.75em 1.25em 1.25em 1.25em;
 	position: relative;
+	overflow: hidden;
 }
 
 @media (max-width: 580px) {
-	.astro-code {
+	.code-wrapper {
 		border-radius: 0;
 	}
+}
+
+.code-wrapper .astro-code {
+	margin: 0;
+	border-radius: 0;
+	padding: 1.75em 1.25em 1.25em 1.25em;
 }
 
 :not(pre) > code {
@@ -33,7 +39,7 @@ code {
 	white-space: normal;
 }
 
-.astro-code::before {
+.code-wrapper::before {
 	font-family: 'JetBrains Mono', Consolas, monospace;
 	border-radius: 0px 0px 4px 4px;
 	padding: 0.25rem 0.5rem;
@@ -49,75 +55,77 @@ code {
 	top: 0px;
 }
 
-pre[data-language='html']::before {
+.code-wrapper:has(pre[data-language='html'])::before {
 	content: 'html';
 	background: #005a9c;
 	color: #ffffff;
 }
 
-pre[data-language='js']::before {
+.code-wrapper:has(pre[data-language='js'])::before {
 	content: 'js';
 	background: #f7df1e;
 }
 
-pre[data-language='ts']::before {
+.code-wrapper:has(pre[data-language='ts'])::before {
 	content: 'ts';
 	background: #294e80;
 	color: #ffffff;
 }
 
-pre[data-language='jsx']::before {
+.code-wrapper:has(pre[data-language='jsx'])::before {
 	content: 'jsx';
 	background: #61dafb;
 }
 
-pre[data-language='tsx']::before {
+.code-wrapper:has(pre[data-language='tsx'])::before {
 	content: 'tsx';
 	background: #294e80;
 	color: #ffffff;
 }
 
-pre[data-language='css']::before {
+.code-wrapper:has(pre[data-language='css'])::before {
 	content: 'css';
 	background: #ff9800;
 	color: #ffffff;
 }
 
-pre[data-language='diff']::before {
+.code-wrapper:has(pre[data-language='diff'])::before {
 	content: 'diff';
 	background: #e6ffed;
 }
 
-pre[data-language='json']::before,
-pre[data-language='json5']::before {
+.code-wrapper:has(pre[data-language='json'])::before,
+.code-wrapper:has(pre[data-language='json5'])::before {
 	content: 'json';
-	background: linen;
+	background: #faf0e6;
 }
 
-pre[data-language='shell']::before {
+.code-wrapper:has(pre[data-language='shell'])::before {
 	content: 'shell';
-}
-
-pre[data-language='ini']::before {
-	content: 'ini';
-	background: gray;
+	background: #4eaa25;
 	color: #ffffff;
 }
 
-pre[data-language='makefile']::before {
+.code-wrapper:has(pre[data-language='ini'])::before {
+	content: 'ini';
+	background: #808080;
+	color: #ffffff;
+}
+
+.code-wrapper:has(pre[data-language='makefile'])::before {
 	content: 'makefile';
 	background: #ef5350;
 	color: #ffffff;
 }
 
-pre[data-language='astro']::before {
+.code-wrapper:has(pre[data-language='astro'])::before {
 	content: 'astro';
 	background: #e43a99;
 	color: #ffffff;
 }
 
-pre[data-language='yml']::before,
-pre[data-language='yaml']::before {
+.code-wrapper:has(pre[data-language='yml'])::before,
+.code-wrapper:has(pre[data-language='yaml'])::before {
 	content: 'yml';
 	background: #7b42bc;
 	color: #ffffff;
