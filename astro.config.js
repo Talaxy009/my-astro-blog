@@ -8,10 +8,10 @@ import { unified } from '@astrojs/markdown-remark';
 import { defineConfig } from 'astro/config';
 import remarkGfm from 'remark-gfm';
 
-import rehypeCodeWrapper from './plugins/rehype-code-wrapper.js';
-import remarkReadingTime from './plugins/remark-reading-time.js';
-import remarkTweetCard from './plugins/remark-tweet-card.js';
+import remarkTweetCard from 'remark-tweet-card';
 import remarkLinkCard from './plugins/remark-link-card.js';
+import remarkReadingTime from './plugins/remark-reading-time.js';
+import rehypeCodeWrapper from './plugins/rehype-code-wrapper.js';
 
 // https://astro.build/config
 export default defineConfig({
