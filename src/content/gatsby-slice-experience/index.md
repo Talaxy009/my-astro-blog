@@ -1,6 +1,6 @@
 ---
 title: Gatsby Slice 使用体验
-date: '2022-11-23T11:50:21.725Z'
+date: '2022-11-23T11:50:21.725+08:00'
 description: 'Gatsby Slice——一个能让组件用上 GraphQL 的新玩具'
 tags: ['Gatsby', '技术', '记录']
 img: 'img.png'

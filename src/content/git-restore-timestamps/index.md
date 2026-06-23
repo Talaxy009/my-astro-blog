@@ -1,6 +1,6 @@
 ---
 title: 'GitHub Actions 下恢复文件时间戳'
-date: '2023-03-02T20:53:18.539Z'
+date: '2023-03-02T20:53:18.539+08:00'
 description: 'Git / GitHub Actions 下的文件会丢失它的时间戳，我们来恢复它'
 tags: ['技术']
 img: 'img.png'

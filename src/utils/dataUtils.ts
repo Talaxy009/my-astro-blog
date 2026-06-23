@@ -1,13 +1,15 @@
 import dayjs from 'dayjs';
 import relativeTime from 'dayjs/plugin/relativeTime';
+import utc from 'dayjs/plugin/utc';
 import 'dayjs/locale/zh-cn';
 
 dayjs.extend(relativeTime);
+dayjs.extend(utc);
 dayjs.locale('zh-cn');
 
 type PostGroup = {
 	tags: TagInfo[];
-	postMap: Map<string, Post>;
+	postMap: Record<string, Post>;
 };
 
 /**
@@ -25,7 +27,7 @@ export function formatTime(minutes: number): string {
  * @returns YYYY 年 MM 月 DD 日
  */
 export function formatDate(date: Date): string {
-	return dayjs(date).format('YYYY 年 MM 月 DD 日');
+	return dayjs(date).utcOffset(8).format('YYYY 年 MM 月 DD 日');
 }
 
 /**
@@ -68,10 +70,10 @@ export function getPostGroup(
 	postList: Array<Post>,
 	groupSize: number,
 ): PostGroup {
-	const postMap = new Map<string, Post>();
+	const postMap: Record<string, Post> = {};
 	const tagList = new Map<string, Array<string>>();
 	postList.forEach((post) => {
-		postMap.set(post.id, post);
+		postMap[post.id] = post;
 		post.tags.forEach((tag) => {
 			if (!tagList.has(tag)) tagList.set(tag, []);
 			tagList.get(tag)?.push(post.id);
@@ -91,7 +93,7 @@ export function getPostGroup(
 		count: postList.length,
 		slugs: splitArray(
 			postList.map((post) => {
-				postMap.set(post.id, post);
+				postMap[post.id] = post;
 				return post.id;
 			}),
 			groupSize,

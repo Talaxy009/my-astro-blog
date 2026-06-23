@@ -1,6 +1,6 @@
 ---
 title: React 下 Valine 的封装与使用
-date: '2022-05-15T11:02:38.254Z'
+date: '2022-05-15T11:02:38.254+08:00'
 description: '告别第三方库，自己封装，直接使用'
 tags: ['技术']
 img: 'img.png'

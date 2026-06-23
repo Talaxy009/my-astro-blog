@@ -9,7 +9,7 @@ import { menuIndex, pageIndex } from 'src/store';
 import './index.css';
 
 type Props = {
-	postMap: Map<string, Post>;
+	postMap: Record<string, Post>;
 	tags: TagInfo[];
 };
 
@@ -49,7 +49,7 @@ export default function PostList({ postMap, tags }: Props) {
 				</menu>
 			</button>
 			{tags[menu].slugs[page - 1].map((slug) => (
-				<PostItem key={slug} post={postMap.get(slug)} />
+				<PostItem key={slug} post={postMap[slug]} />
 			))}
 			<Pagination
 				value={page}

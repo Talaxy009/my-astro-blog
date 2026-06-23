@@ -1,6 +1,6 @@
 ---
 title: Valine 和 use-dark-mode 不小心把家拆了
-date: '2023-02-14T10:27:26.393Z'
+date: '2023-02-14T10:27:26.393+08:00'
 description: '前端奇遇记之发个评论就能搞崩一个网站'
 tags: ['技术', '记录']
 img: 'img.png'
