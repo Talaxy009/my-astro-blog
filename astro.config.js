@@ -26,7 +26,19 @@ export default defineConfig({
 			remarkPlugins: [
 				remarkGfm,
 				remarkLinkCard,
-				remarkTweetCard,
+				[
+					remarkTweetCard,
+					{
+						text: {
+							replies: '回复',
+							reposts: '转发',
+							quotes: '引用',
+							likes: '喜欢',
+							viewOnX: '在 X 上查看',
+							notFound: '推文不可用',
+						},
+					},
+				],
 				remarkReadingTime,
 			],
 			rehypePlugins: [rehypeCodeWrapper],

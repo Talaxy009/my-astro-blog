@@ -8864,7 +8864,7 @@ __metadata:
     react-dom: "npm:^19.2.7"
     reading-time: "npm:^1.5.0"
     remark-gfm: "npm:^4.0.1"
-    remark-tweet-card: "npm:^1.0.0-beta.0"
+    remark-tweet-card: "npm:^1.0.0-beta.1"
     sharp: "npm:^0.35.2"
     simple-icons-astro: "npm:^16.1.0"
     typescript: "npm:^6.0.3"
@@ -10150,9 +10150,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"remark-tweet-card@npm:^1.0.0-beta.0":
-  version: 1.0.0-beta.0
-  resolution: "remark-tweet-card@npm:1.0.0-beta.0"
+"remark-tweet-card@npm:^1.0.0-beta.1":
+  version: 1.0.0-beta.1
+  resolution: "remark-tweet-card@npm:1.0.0-beta.1"
   dependencies:
     unist-util-visit: "npm:^5.1.0"
   peerDependencies:
@@ -10160,7 +10160,7 @@ __metadata:
   peerDependenciesMeta:
     unist-util-visit:
       optional: false
-  checksum: 10c0/128ba9199361615315a42749746f7660f892db94c4c8dd0d3b27d95e5591a784c0141796810c9adf7670429dc12920b4327d4c74a912eb9e246aaa3c21374d0e
+  checksum: 10c0/8cdaf3e98bffec48de7b599178e6247f8179ee04b134c6e73f1dccc77bf31e401c8f4ca35feb24029d8814b76b23b61245eae1d5f45a87005f858faedf7e5ada
   languageName: node
   linkType: hard
 
