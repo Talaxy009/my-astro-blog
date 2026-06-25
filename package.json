@@ -31,7 +31,7 @@
 		"react-dom": "^19.2.7",
 		"reading-time": "^1.5.0",
 		"remark-gfm": "^4.0.1",
-		"remark-tweet-card": "^1.0.0-beta.1",
+		"remark-tweet-card": "latest",
 		"sharp": "^0.35.2",
 		"simple-icons-astro": "^16.1.0",
 		"unist-util-visit": "5.1.0"
