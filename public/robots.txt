@@ -1,2 +1,2 @@
 User-agent: *
-Sitemap: https://www.talaxy.site/sitemap/sitemap-index.xml
+Sitemap: https://www.talaxy.site/sitemap-index.xml
