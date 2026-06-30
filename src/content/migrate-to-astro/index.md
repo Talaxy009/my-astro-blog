@@ -60,7 +60,9 @@ Astro 是“群岛架构”，每个岛屿或者说每个组件之间都是不�
 
 ### 推文卡片
 
-之前用 react-tweet 来实现这块的功能，后台同样是 Netlify Function 部署的。迁移的时候想了下，反正我都是在 Markdown 文件里用，不如直接搞个 Remark 插件，这样后台也省了！消耗了 200 AI Credits 外加五分钟后，我就得到了我想要，这要是放以前我至少得花两天才能搞出来🥲。
+之前用 react-tweet 来实现这块的功能，后台同样是 Netlify Function 部署的。迁移的时候想了下，反正我都是在 Markdown 文件里用，不如直接搞个 Remark 插件，这样后台也省了！消耗了 200 AI Credits 外加五分钟后，我就得到了我想要，这要是放以前我至少得花两天才能搞出来🥲。这部分功能我也封装了一个 npm 包出来，感情兴趣的可以看下：
+
+[$card](https://remark-tweet-card.talaxy.site)
 
 ### 链接卡片
 
