@@ -39,7 +39,7 @@
 	"devDependencies": {
 		"@iconify-json/material-symbols": "^1.2.76",
 		"@waline/client": "^3.15.2",
-		"prettier": "3.8.4",
+		"prettier": "3.9.5",
 		"prettier-plugin-astro": "0.14.1",
 		"typescript": "^6.0.3"
 	}
