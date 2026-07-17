@@ -41,7 +41,7 @@ article > h3::before {
 	content: counter(section) '.' counter(subSection);
 }
 
-p {
+article p {
 	line-height: 2rem;
 }
 

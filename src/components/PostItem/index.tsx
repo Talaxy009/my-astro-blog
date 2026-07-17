@@ -1,7 +1,7 @@
 import CalendarIcon from '@iconify-react/material-symbols/calendar-month-outline-rounded';
 import ClockIcon from '@iconify-react/material-symbols/nest-clock-farsight-analog-outline-rounded';
 
-import { formatDate, formatTime, toISOString } from '../../utils/dataUtils';
+import { formatDate, formatTime, toISOString } from 'src/utils/dataUtils';
 
 import './index.css';
 

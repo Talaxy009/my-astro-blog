@@ -1,0 +1,78 @@
+---
+import { Image } from 'astro:assets';
+import { Icon } from 'astro-icon/components';
+
+import { formatDate, toISOString } from 'src/utils/dataUtils';
+
+type Props = {
+	post: Post;
+};
+
+const { post } = Astro.props;
+---
+
+<a href={`/${post.id}`} class="recommended-post s12 m6 l6">
+	{
+		post.img && (
+			<div class="img-box">
+				<Image
+					width={400}
+					height={225}
+					src={post.img}
+					alt={post.title}
+					class="responsive"
+				/>
+			</div>
+		)
+	}
+	<div class="content">
+		<h3>{post.title}</h3>
+		<nav>
+			<button class="chip round">
+				<Icon
+					class="responsive"
+					name="material-symbols:calendar-month-outline-rounded"
+				/>
+				<time datetime={toISOString(post.date)}>
+					{formatDate(post.date)}
+				</time>
+			</button>
+		</nav>
+		<p>{post.description}</p>
+	</div>
+</a>
+
+<style>
+	.recommended-post {
+		display: flex;
+		flex-direction: column;
+		overflow: hidden;
+		border-radius: 2rem;
+		text-decoration: none;
+		align-items: stretch !important;
+		background-color: var(--surface-container);
+		transition: var(--sys-transition);
+	}
+	.recommended-post:hover,
+	.recommended-post:focus,
+	.recommended-post:active {
+		border-radius: 3rem;
+		text-decoration: none;
+	}
+	.img-box {
+		border-radius: 2rem;
+		overflow: hidden;
+		background-color: var(--surface-container-high);
+	}
+	.img-box img {
+		width: 100%;
+		height: auto;
+		display: block;
+	}
+	.content {
+		padding: 0 1rem 1rem;
+	}
+	.content h3 {
+		margin: 0.8rem 0;
+	}
+</style>

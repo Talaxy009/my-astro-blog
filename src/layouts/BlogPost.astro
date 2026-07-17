@@ -5,6 +5,7 @@ import Waline from '../components/Waline';
 import Footer from '../components/Footer.astro';
 import BaseHead from '../components/BaseHead.astro';
 import DarkModeButton from '../components/DarkModeButton';
+import RecommendedPost from '../components/RecommendedPost.astro';
 import { formatTime, formatDate, toISOString } from '../utils/dataUtils';
 
 import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
@@ -15,9 +16,12 @@ import 'src/styles/article.css';
 import 'src/styles/waline.css';
 import 'src/styles/code.css';
 
-type Props = CollectionEntry<'blogs'> & { minutesRead: number };
+type Props = CollectionEntry<'blogs'> & {
+	minutesRead: number;
+	recommendedPosts: Post[];
+};
 
-const { data, minutesRead, id } = Astro.props;
+const { data, minutesRead, id, recommendedPosts } = Astro.props;
 const { title, description, img, date, tags } = data;
 ---
 
@@ -48,6 +52,12 @@ const { title, description, img, date, tags } = data;
 			.topbar a:hover {
 				text-decoration: none;
 			}
+			.recommended {
+				margin: 1rem 0;
+			}
+			.recommended h2 {
+				margin-bottom: 0.8em;
+			}
 		</style>
 	</head>
 	<body>
@@ -77,6 +87,19 @@ const { title, description, img, date, tags } = data;
 			<article>
 				<slot />
 			</article>
+			<hr>
+			{
+				recommendedPosts.length > 0 && (
+					<section class="recommended beer">
+						<h2>推荐阅读</h2>
+						<div class="grid">
+							{recommendedPosts.map((rec) => (
+								<RecommendedPost post={rec} />
+							))}
+						</div>
+					</section>
+				)
+			}
 			<Waline client:idle path={`/${id}/`} />
 		</main>
 		<Footer />

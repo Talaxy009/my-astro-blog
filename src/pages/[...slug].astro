@@ -15,8 +15,36 @@ type Props = CollectionEntry<'blogs'>;
 
 const post = Astro.props;
 const { Content, remarkPluginFrontmatter } = await render(post);
+
+// 获取推荐文章：与当前文章第一个 tag 相同的最新 2 篇文章
+const allPosts = await getCollection('blogs');
+const firstTag = post.data.tags[0];
+const relatedPosts = allPosts
+	.filter((p) => p.id !== post.id && p.data.tags.includes(firstTag))
+	.sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
+	.slice(0, 2);
+const recommendedPosts = relatedPosts.map((item) => {
+	const img = item.data.img;
+	return {
+		id: item.id,
+		...item.data,
+		img: img
+			? {
+					src: img.src,
+					width: img.width,
+					height: img.height,
+					format: img.format,
+				}
+			: undefined,
+		minutesRead: 0,
+	};
+});
 ---
 
-<BlogPost {...post} minutesRead={remarkPluginFrontmatter.minutesRead}>
+<BlogPost
+	{...post}
+	minutesRead={remarkPluginFrontmatter.minutesRead}
+	recommendedPosts={recommendedPosts}
+>
 	<Content />
 </BlogPost>
