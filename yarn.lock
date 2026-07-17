@@ -123,7 +123,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@astrojs/compiler-rs@npm:^0.3.0":
+"@astrojs/compiler-rs@npm:^0.3.1":
   version: 0.3.1
   resolution: "@astrojs/compiler-rs@npm:0.3.1"
   dependencies:
@@ -180,21 +180,22 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@astrojs/markdown-satteri@npm:0.3.3":
-  version: 0.3.3
-  resolution: "@astrojs/markdown-satteri@npm:0.3.3"
+"@astrojs/markdown-satteri@npm:0.3.4":
+  version: 0.3.4
+  resolution: "@astrojs/markdown-satteri@npm:0.3.4"
   dependencies:
     "@astrojs/internal-helpers": "npm:0.10.1"
     "@astrojs/prism": "npm:4.0.2"
     github-slugger: "npm:^2.0.0"
+    hast-util-from-html: "npm:^2.0.3"
     satteri: "npm:^0.9.1"
-  checksum: 10c0/5069911669569e47917627f9463604c0156ce7a7cd32edec51da913bab6a0a64ef4f693745fe2f5d41b074d6306adf97313a513e9dc8f44ad37e88b9002fc47c
+  checksum: 10c0/b6df9043068f5e54a7e673f5ba724f7e9ee1334a30fdbeef16c644763a445fc8d34cb904095eda7acecbb3b471a25602c5a805031b756264d4e878895ba5e035
   languageName: node
   linkType: hard
 
-"@astrojs/mdx@npm:7.0.2":
-  version: 7.0.2
-  resolution: "@astrojs/mdx@npm:7.0.2"
+"@astrojs/mdx@npm:7.0.3":
+  version: 7.0.3
+  resolution: "@astrojs/mdx@npm:7.0.3"
   dependencies:
     "@astrojs/internal-helpers": "npm:0.10.1"
     "@astrojs/markdown-remark": "npm:7.2.1"
@@ -216,13 +217,13 @@ __metadata:
   peerDependenciesMeta:
     "@astrojs/markdown-satteri":
       optional: true
-  checksum: 10c0/87dc00a969ba0b2f2b8a8b53abca31979b1eebc2004fcaf881d0e82bcacd4c0520653ae962afbd6f966eb3fa6f4eff8ac9671270631693d87fbe2a8030c6b148
+  checksum: 10c0/9ac40ce106df412f25815871eb4c4e400d7231ff5e4fd469848b2c9eafbeb1b9122d3fb64f95d43a363b0cb589c06091f91f19778e7c775bdf8a7f0775deaa42
   languageName: node
   linkType: hard
 
-"@astrojs/netlify@npm:8.1.1":
-  version: 8.1.1
-  resolution: "@astrojs/netlify@npm:8.1.1"
+"@astrojs/netlify@npm:8.1.2":
+  version: 8.1.2
+  resolution: "@astrojs/netlify@npm:8.1.2"
   dependencies:
     "@astrojs/internal-helpers": "npm:0.10.1"
     "@astrojs/underscore-redirects": "npm:1.0.3"
@@ -235,7 +236,7 @@ __metadata:
     vite: "npm:^8.0.13"
   peerDependencies:
     astro: ^7.0.0
-  checksum: 10c0/be2c7bb32a6927d0b5c67db32a51a78440c63603eaa0056da3ddce8cfbb216167fd9e2495fadb06f29139078ce59137b968a047330ad44948b075b2683e8e0da
+  checksum: 10c0/903044cd5bea5776ee419151876112f8652c30986de904df9ea92e51096cfe41f8a49e3b143f6dce9daba9ae367a8e97f31372ffd5f663823865b34d9b4a7915
   languageName: node
   linkType: hard
 
@@ -3871,13 +3872,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"astro@npm:7.0.7":
-  version: 7.0.7
-  resolution: "astro@npm:7.0.7"
+"astro@npm:7.1.0":
+  version: 7.1.0
+  resolution: "astro@npm:7.1.0"
   dependencies:
-    "@astrojs/compiler-rs": "npm:^0.3.0"
+    "@astrojs/compiler-rs": "npm:^0.3.1"
     "@astrojs/internal-helpers": "npm:0.10.1"
-    "@astrojs/markdown-satteri": "npm:0.3.3"
+    "@astrojs/markdown-satteri": "npm:0.3.4"
     "@astrojs/telemetry": "npm:3.3.3"
     "@capsizecss/unpack": "npm:^4.0.0"
     "@clack/prompts": "npm:^1.1.0"
@@ -3939,7 +3940,7 @@ __metadata:
       optional: true
   bin:
     astro: ./bin/astro.mjs
-  checksum: 10c0/51fd4e60bfd6fafd7b343b73fe92a6b9f2114af9c5a80c140f88e447dde61f334a3556bb6dd7d3794eb48562864e5f1e61cf57ba57e60a70cdf1f6965a853b44
+  checksum: 10c0/4639367de441cd1832e2c63bc9e99d566519668a686fcddc2a542c0ef4e8a1ca76cc28490edc3f1b8ce0b2e3b8028333a87f84f8019530546b9bdca9af9749b6
   languageName: node
   linkType: hard
 
@@ -8858,8 +8859,8 @@ __metadata:
   resolution: "my-astro-blog@workspace:."
   dependencies:
     "@astrojs/markdown-remark": "npm:7.2.1"
-    "@astrojs/mdx": "npm:7.0.2"
-    "@astrojs/netlify": "npm:8.1.1"
+    "@astrojs/mdx": "npm:7.0.3"
+    "@astrojs/netlify": "npm:8.1.2"
     "@astrojs/react": "npm:6.0.1"
     "@astrojs/rss": "npm:4.0.19"
     "@astrojs/sitemap": "npm:3.7.3"
@@ -8869,7 +8870,7 @@ __metadata:
     "@types/react": "npm:^19.2.17"
     "@types/react-dom": "npm:^19.2.3"
     "@waline/client": "npm:^3.15.2"
-    astro: "npm:7.0.7"
+    astro: "npm:7.1.0"
     astro-icon: "npm:^1.1.5"
     dayjs: "npm:^1.11.21"
     mdast-util-to-string: "npm:^4.0.0"
@@ -10227,7 +10228,7 @@ __metadata:
 
 "resolve@patch:resolve@npm%3A^2.0.0-next.1#optional!builtin<compat/resolve>":
   version: 2.0.0-next.7
-  resolution: "resolve@patch:resolve@npm%3A2.0.0-next.7#optional!builtin<compat/resolve>::version=2.0.0-next.7&hash=9bd1a5"
+  resolution: "resolve@patch:resolve@npm%3A2.0.0-next.7#optional!builtin<compat/resolve>::version=2.0.0-next.7&hash=c3c19d"
   dependencies:
     es-errors: "npm:^1.3.0"
     is-core-module: "npm:^2.16.2"
@@ -10237,7 +10238,7 @@ __metadata:
     supports-preserve-symlinks-flag: "npm:^1.0.0"
   bin:
     resolve: bin/resolve
-  checksum: 10c0/911e8321c64ec2a723247dbeabfcb7663577adf52af642bfda61ddee686fbef2255ad529ff57ee8e3884ee23186b85b2637988bfafc0a9a3a81a98bd4af1e2fc
+  checksum: 10c0/6bb6f1d8a1789f7a5b4e35d950e76bc0ba632ff7d51fe86b6f34fb5f41e1ce0f7b884ec166828cfc0728ddffeaee49527711d752d12398297f90c51acd22195e
   languageName: node
   linkType: hard
 
