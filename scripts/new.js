@@ -1,22 +1,12 @@
 import fs from 'fs';
 import path from 'path';
+import dayjs from 'dayjs';
 import readline from 'readline';
 import { fileURLToPath } from 'url';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 const CONTENT_DIR = path.join(__dirname, '..', 'src', 'content');
-
-function getLocalISOString() {
-	const now = new Date();
-	const offset = -now.getTimezoneOffset();
-	const sign = offset >= 0 ? '+' : '-';
-	const pad = (n) => String(Math.floor(Math.abs(n))).padStart(2, '0');
-	const hh = pad(offset / 60);
-	const mm = pad(offset % 60);
-	const local = new Date(now.getTime() - now.getTimezoneOffset() * 60000);
-	return `${local.toISOString().slice(0, 19)}${sign}${hh}:${mm}`;
-}
 
 function createPost(slug) {
 	if (!slug || !/^[\w-]+$/.test(slug)) {
@@ -36,7 +26,7 @@ function createPost(slug) {
 	const frontmatter = [
 		'---',
 		'title: ',
-		`date: '${getLocalISOString()}'`,
+		`date: '${dayjs().format('YYYY-MM-DDTHH:mm:ssZ')}'`,
 		"description: ''",
 		'tags: []',
 		"img: 'img.svg'",
