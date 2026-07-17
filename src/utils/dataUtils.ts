@@ -56,7 +56,7 @@ export function getTimeDiff(date: Date): string {
  */
 export function splitArray<T>(arr: readonly T[], size: number): T[][] {
 	let newArr = [];
-	for (let i = 0; i < arr.length; ) {
+	for (let i = 0; i < arr.length;) {
 		newArr.push(arr.slice(i, (i += size)));
 	}
 	return newArr;
