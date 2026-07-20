@@ -22,7 +22,7 @@
 		"@nanostores/react": "^1.1.0",
 		"@types/react": "^19.2.17",
 		"@types/react-dom": "^19.2.3",
-		"astro": "7.1.0",
+		"astro": "7.1.1",
 		"astro-icon": "^1.1.5",
 		"dayjs": "^1.11.21",
 		"mdast-util-to-string": "^4.0.0",

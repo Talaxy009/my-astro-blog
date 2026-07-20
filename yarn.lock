@@ -3872,9 +3872,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"astro@npm:7.1.0":
-  version: 7.1.0
-  resolution: "astro@npm:7.1.0"
+"astro@npm:7.1.1":
+  version: 7.1.1
+  resolution: "astro@npm:7.1.1"
   dependencies:
     "@astrojs/compiler-rs": "npm:^0.3.1"
     "@astrojs/internal-helpers": "npm:0.10.1"
@@ -3940,7 +3940,7 @@ __metadata:
       optional: true
   bin:
     astro: ./bin/astro.mjs
-  checksum: 10c0/4639367de441cd1832e2c63bc9e99d566519668a686fcddc2a542c0ef4e8a1ca76cc28490edc3f1b8ce0b2e3b8028333a87f84f8019530546b9bdca9af9749b6
+  checksum: 10c0/fcebeeeaea6ab9d8e75237451965b6d2c4684c52706eb3aeb4327df60e842d2cfa59bb0c404798cd1e578f1d1f28516763f3f706a373a051751b970a6775e306
   languageName: node
   linkType: hard
 
@@ -8870,7 +8870,7 @@ __metadata:
     "@types/react": "npm:^19.2.17"
     "@types/react-dom": "npm:^19.2.3"
     "@waline/client": "npm:^3.15.2"
-    astro: "npm:7.1.0"
+    astro: "npm:7.1.1"
     astro-icon: "npm:^1.1.5"
     dayjs: "npm:^1.11.21"
     mdast-util-to-string: "npm:^4.0.0"
