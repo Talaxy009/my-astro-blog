@@ -9,7 +9,13 @@ const { title, description } = Astro.props;
 <div class="beer banner-root">
 	<img alt="banner" class="bannerImg" src="/banner.svg" />
 	<div class="banner-container">
-		<h1>{title || SITE_TITLE}</h1>
+		{
+			title ? (
+				<h1>{title}</h1>
+			) : (
+				<h1 transition:name="site-title">{SITE_TITLE}</h1>
+			)
+		}
 		<span class="description">{description || SITE_DESCRIPTION}</span>
 		{
 			!title && (

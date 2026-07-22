@@ -18,18 +18,44 @@ html::-webkit-scrollbar-thumb:hover {
 	background-color: #008ba1;
 }
 
-::view-transition-old(root),
-::view-transition-new(root) {
-	animation: none;
+/* View Transitions — 夜间模式过渡 */
+html:is(.vt-darkmode)::view-transition-old(root) {
 	mix-blend-mode: normal;
 }
 
-::view-transition-old(root) {
+html:is(.vt-darkmode)::view-transition-new(root) {
+	mix-blend-mode: normal;
+	animation: none;
 	z-index: 1;
 }
 
-::view-transition-new(root) {
-	z-index: 9999;
+/* View Transitions — 页面与文章卡片过渡动画 */
+@media (prefers-reduced-motion: no-preference) {
+	@view-transition {
+		navigation: auto;
+	}
+}
+
+::view-transition-old(root) {
+	animation: none;
+}
+
+/* 仅在跨页面导航时生效，暗色模式切换（.vt-darkmode）时跳过 */
+html:not(.vt-darkmode)::view-transition-new(root) {
+	animation: vt-page-in 400ms cubic-bezier(0.4, 0, 0.2, 1);
+	z-index: 1;
+}
+
+/* 所有具名过渡组使用统一的缓动和时长 */
+::view-transition-group(*) {
+	animation-duration: 400ms;
+	animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@keyframes vt-page-in {
+	from {
+		opacity: 0;
+	}
 }
 
 a {

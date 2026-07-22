@@ -64,11 +64,23 @@ const { title, description, img, date, tags } = data;
 		<main>
 			<header class="beer">
 				<div class="topbar">
-					<a href="/">{SITE_TITLE}</a>
+					<a href="/" transition:name="site-title">
+						{SITE_TITLE}
+					</a>
 					<DarkModeButton client:load />
 				</div>
-				{img && <Image width={800} height={450} src={img} alt="" />}
-				<h1>{title}</h1>
+				{
+					img && (
+						<Image
+							transition:name={`post-img-${id}`}
+							width={800}
+							height={450}
+							alt={title}
+							src={img}
+						/>
+					)
+				}
+				<h1 transition:name={`post-title-${id}`}>{title}</h1>
 				<div class="row vertical-margin">
 					<time datetime={toISOString(date)}>
 						{formatDate(date)}

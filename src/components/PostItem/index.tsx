@@ -16,15 +16,22 @@ export default function PostItem({ post }: Props) {
 
 	return (
 		<a href={link} className="post-item-body">
-			<div className="post-item-img">
-				<img
-					className="responsive"
-					src={post.img?.src}
-					alt={post.title}
-				/>
-			</div>
+			{post.img && (
+				<div
+					className="post-item-img"
+					style={{ viewTransitionName: `post-img-${post.id}` }}
+				>
+					<img
+						className="responsive"
+						src={post.img.src}
+						alt={post.title}
+					/>
+				</div>
+			)}
 			<div className="post-item-content">
-				<h3>{post.title}</h3>
+				<h3 style={{ viewTransitionName: `post-title-${post.id}` }}>
+					{post.title}
+				</h3>
 				<nav>
 					<button className="chip round">
 						<CalendarIcon className="responsive" />

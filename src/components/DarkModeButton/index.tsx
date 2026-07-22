@@ -21,6 +21,8 @@ export default function DarkModeButton() {
 			Math.max(x, innerWidth - x),
 			Math.max(y, innerHeight - y),
 		);
+		// 标记此次为暗色模式过渡，避免页面级 CSS 动画干扰
+		document.documentElement.classList.add('vt-darkmode');
 		const transition = document.startViewTransition(toggle);
 		transition.ready.then(() => {
 			const clipPath = [
@@ -37,6 +39,9 @@ export default function DarkModeButton() {
 					pseudoElement: '::view-transition-new(root)',
 				},
 			);
+		});
+		transition.finished.finally(() => {
+			document.documentElement.classList.remove('vt-darkmode');
 		});
 	};
 
