@@ -10,9 +10,11 @@ img: 'img.jpg'
 
 ## 有用的资料
 
-[$card](https://edward40.com/posts/a-guide-to-building-a-personal-website-with-gatsby/)
+[$card](https://edward40.com/p/a-guide-to-building-a-personal-website-with-gatsby/)
 
 [$card](https://www.gatsbyjs.com/docs/tutorial/)
+
+[$card](https://docs.astro.build/zh-cn/tutorial/)
 
 ## 关于这个网站的历史 (持续更新)
 
@@ -81,3 +83,5 @@ img: 'img.jpg'
 ### 电气时代
 
 - 2026/06/07——网站迁移到 Astro
+- 2026/06/08——使用 AI Agent 生成文章封面，并添加相关 skill
+- 2026/07/22——使用 View Transition API 进行页面过渡
