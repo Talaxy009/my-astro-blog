@@ -9,6 +9,11 @@ article p > img {
 	height: auto;
 }
 
+article video {
+	max-width: 100%;
+	border-radius: 1rem;
+}
+
 article > h2,
 article > h3,
 article > h4,
