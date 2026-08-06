@@ -13,7 +13,7 @@ export default function rehypeCodeWrapper(options = {}) {
 
 	return function (tree) {
 		visit(tree, 'element', (node, index, parent) => {
-			if (node.tagName === 'pre' && parent?.type === 'root') {
+			if (node.tagName === 'pre') {
 				const wrapper = {
 					type: 'element',
 					tagName: 'div',
