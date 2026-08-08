@@ -3,7 +3,7 @@ title: 日本七日游
 date: '2026-08-02T10:51:08+08:00'
 description: '第一次出国——大阪+东京的七日游~'
 tags: ['生活']
-img: 'IMG_2825.jpeg'
+img: 'img.jpg'
 ---
 
 ## 写在前面
