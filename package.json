@@ -14,7 +14,7 @@
 	"dependencies": {
 		"@astrojs/markdown-remark": "7.2.2",
 		"@astrojs/mdx": "7.0.5",
-		"@astrojs/netlify": "8.1.3",
+		"@astrojs/netlify": "8.2.0",
 		"@astrojs/react": "6.0.2",
 		"@astrojs/rss": "4.0.19",
 		"@astrojs/sitemap": "3.7.3",
@@ -22,7 +22,7 @@
 		"@nanostores/react": "^1.1.0",
 		"@types/react": "^19.2.17",
 		"@types/react-dom": "^19.2.3",
-		"astro": "7.1.6",
+		"astro": "7.2.0",
 		"astro-icon": "^1.1.5",
 		"dayjs": "^1.11.21",
 		"mdast-util-to-string": "^4.0.0",
@@ -39,7 +39,7 @@
 	"devDependencies": {
 		"@iconify-json/material-symbols": "^1.2.76",
 		"@waline/client": "^3.15.2",
-		"prettier": "3.9.5",
+		"prettier": "3.9.6",
 		"prettier-plugin-astro": "0.14.1",
 		"typescript": "^6.0.3"
 	}
