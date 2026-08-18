@@ -221,12 +221,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@astrojs/netlify@npm:8.2.0":
-  version: 8.2.0
-  resolution: "@astrojs/netlify@npm:8.2.0"
+"@astrojs/netlify@npm:8.2.1":
+  version: 8.2.1
+  resolution: "@astrojs/netlify@npm:8.2.1"
   dependencies:
     "@astrojs/internal-helpers": "npm:0.10.2"
-    "@astrojs/underscore-redirects": "npm:1.0.3"
+    "@astrojs/underscore-redirects": "npm:1.0.4"
     "@netlify/blobs": "npm:^10.7.4"
     "@netlify/functions": "npm:^5.2.0"
     "@netlify/vite-plugin": "npm:^2.12.3"
@@ -236,7 +236,7 @@ __metadata:
     vite: "npm:^8.0.13"
   peerDependencies:
     astro: ^7.0.0
-  checksum: 10c0/a659a24849eb2e57ab1c086db1958a41590ae215d8d9e463e5e2024fcd2d2203073724ef131bcc3aeaeee89d643f5dcd218dc1743fdce69010bee8c12bd4c9a2
+  checksum: 10c0/34f9dbeae0a4bb45672c5ed5140394732aa99252535ded3db9a4d53de92e14421c3753bc66ee2c521462826f1d5cc38ef525ec2f6b1a8873e72b101ad585414f
   languageName: node
   linkType: hard
 
@@ -301,10 +301,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@astrojs/underscore-redirects@npm:1.0.3":
-  version: 1.0.3
-  resolution: "@astrojs/underscore-redirects@npm:1.0.3"
-  checksum: 10c0/6d10add49fdf1d35a16152550ec67f3a5782ae3838f601d46bcc14901a1bd1206277d155bc1d96215082aaa3c2afa1d43e2d16b06f569af37ec531311d65fcfb
+"@astrojs/underscore-redirects@npm:1.0.4":
+  version: 1.0.4
+  resolution: "@astrojs/underscore-redirects@npm:1.0.4"
+  checksum: 10c0/83ca7fceb0153efb34a1a18403f64bca74b3a8ca337ee84d06f08379a978e3d3f0ebae8b7434af0fa5802e16c28ba162fcfbbdf65e3c482008c73cd263bbce47
   languageName: node
   linkType: hard
 
@@ -3872,9 +3872,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"astro@npm:7.2.0":
-  version: 7.2.0
-  resolution: "astro@npm:7.2.0"
+"astro@npm:7.2.2":
+  version: 7.2.2
+  resolution: "astro@npm:7.2.2"
   dependencies:
     "@astrojs/compiler-rs": "npm:^0.3.2"
     "@astrojs/internal-helpers": "npm:0.10.2"
@@ -3895,6 +3895,7 @@ __metadata:
     dset: "npm:^3.1.4"
     es-module-lexer: "npm:^2.0.0"
     esbuild: "npm:^0.28.0"
+    find-process: "npm:^2.1.1"
     flattie: "npm:^1.1.1"
     fontace: "npm:~0.4.1"
     get-tsconfig: "npm:5.0.0-beta.4"
@@ -3939,7 +3940,7 @@ __metadata:
       optional: true
   bin:
     astro: ./bin/astro.mjs
-  checksum: 10c0/7e014706ea285fbc4de5365bab3f3e54e62c795896f5dd9af388065463729a491f960dd105e05a11c96c9c1f16b9607db2193b8884abedf74917dd66c7657ccb
+  checksum: 10c0/f925b6d5253b43fef453082f3a6effc8f309cf3d6f5662a670caecc2bd9b6b72cc441ac2dc120ff3bd0083d1ed0e7e15a0e22b4b23be72b4bd39b7b1b78a6574
   languageName: node
   linkType: hard
 
@@ -4321,7 +4322,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"chalk@npm:^4.1.2":
+"chalk@npm:^4.1.2, chalk@npm:~4.1.2":
   version: 4.1.2
   resolution: "chalk@npm:4.1.2"
   dependencies:
@@ -4590,6 +4591,13 @@ __metadata:
   version: 12.1.0
   resolution: "commander@npm:12.1.0"
   checksum: 10c0/6e1996680c083b3b897bfc1cfe1c58dfbcd9842fd43e1aaf8a795fbc237f65efcc860a3ef457b318e73f29a4f4a28f6403c3d653d021d960e4632dd45bde54a9
+  languageName: node
+  linkType: hard
+
+"commander@npm:^14.0.3":
+  version: 14.0.3
+  resolution: "commander@npm:14.0.3"
+  checksum: 10c0/755652564bbf56ff2ff083313912b326450d3f8d8c85f4b71416539c9a05c3c67dbd206821ca72635bf6b160e2afdefcb458e86b317827d5cb333b69ce7f1a24
   languageName: node
   linkType: hard
 
@@ -6074,6 +6082,19 @@ __metadata:
   version: 6.1.0
   resolution: "filter-obj@npm:6.1.0"
   checksum: 10c0/bd190c7a7dbb6ccba36b3f73efe7fc6c899310518c9e4fdfef7772c1d3432030abf65de4a01f979ade08d52b137cb4fb79243824745cd05ee806548382b39f0d
+  languageName: node
+  linkType: hard
+
+"find-process@npm:^2.1.1":
+  version: 2.1.1
+  resolution: "find-process@npm:2.1.1"
+  dependencies:
+    chalk: "npm:~4.1.2"
+    commander: "npm:^14.0.3"
+    loglevel: "npm:^1.9.2"
+  bin:
+    find-process: dist/cjs/bin/find-process.js
+  checksum: 10c0/9ae76be1140c6ad676a43e6bbdb7133a0c79a5844393dec2db8e0b55f65edf1ff689a8f59c3532a5810b7517510a41ed31e186ebd23776ad6a24f82737817a30
   languageName: node
   linkType: hard
 
@@ -7780,6 +7801,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"loglevel@npm:^1.9.2":
+  version: 1.9.2
+  resolution: "loglevel@npm:1.9.2"
+  checksum: 10c0/1e317fa4648fe0b4a4cffef6de037340592cee8547b07d4ce97a487abe9153e704b98451100c799b032c72bb89c9366d71c9fb8192ada8703269263ae77acdc7
+  languageName: node
+  linkType: hard
+
 "longest-streak@npm:^3.0.0":
   version: 3.1.0
   resolution: "longest-streak@npm:3.1.0"
@@ -8906,7 +8934,7 @@ __metadata:
   dependencies:
     "@astrojs/markdown-remark": "npm:7.2.2"
     "@astrojs/mdx": "npm:7.0.5"
-    "@astrojs/netlify": "npm:8.2.0"
+    "@astrojs/netlify": "npm:8.2.1"
     "@astrojs/react": "npm:6.0.2"
     "@astrojs/rss": "npm:4.0.19"
     "@astrojs/sitemap": "npm:3.7.3"
@@ -8916,7 +8944,7 @@ __metadata:
     "@types/react": "npm:^19.2.17"
     "@types/react-dom": "npm:^19.2.3"
     "@waline/client": "npm:^3.15.2"
-    astro: "npm:7.2.0"
+    astro: "npm:7.2.2"
     astro-icon: "npm:^1.1.5"
     cheerio: "npm:^1.2.0"
     dayjs: "npm:^1.11.21"
@@ -10192,8 +10220,8 @@ __metadata:
   linkType: hard
 
 "remark-tweet-card@npm:latest":
-  version: 1.0.0
-  resolution: "remark-tweet-card@npm:1.0.0"
+  version: 1.1.0
+  resolution: "remark-tweet-card@npm:1.1.0"
   dependencies:
     unist-util-visit: "npm:^5.1.0"
   peerDependencies:
@@ -10201,7 +10229,7 @@ __metadata:
   peerDependenciesMeta:
     unist-util-visit:
       optional: false
-  checksum: 10c0/4fa9ae7824231a6905d8cf97930f7593e407bfa597cf6a268a5d4d6fc8ece8815fb6d7a199ba940c1618cf01a487389621160f13cbf8142bde8d77293ab6d6b1
+  checksum: 10c0/aa3bf1e5b848593bf4dff57093341f23c586d1dfb9a7dbd98bf09158555ccd9ad9c2aba09bdb4828ada13c874fa6bbe177fa9a35e74cfc4fc601d3596debc523
   languageName: node
   linkType: hard
 
