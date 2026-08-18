@@ -8,7 +8,7 @@ img: 'img.png'
 
 最近发现了一个开源库：react-tweet，由 Vercel Labs 开发。可部署为 Serveless 函数、为网页嵌入推特推文卡片、支持夜间模式、还使用了 SWR 和 React Server Components 在内的新技术，这实在是太酷啦！我整整把玩了一天！
 
-[$card](https://github.com/vercel-labs/react-tweet/)
+[$card](https://github.com/vercel/react-tweet/)
 
 Vercel 使用 Next.js 搭建的 Demo，很好的展示了其所有特性，可以去体验下：
 
@@ -65,7 +65,7 @@ export default function Tweet({ id = '' }) {
 
 我在 Gatsby 中使用时出了问题，控制台输出了一堆 CSS 样式导入的问题，幸好在这篇 issue 中开发者已经给出了解决办法。
 
-[$card](https://github.com/vercel-labs/react-tweet/issues/45)
+[$card](https://github.com/vercel/react-tweet/issues/45)
 
 需要在 gatsby-node.js 下修改 Webpack 配置：
 
@@ -106,7 +106,7 @@ import 'react-tweet/theme.css';
 
 > 若 Tweet 组件的使用环境不支持 React Server Components，它将使用 SWR 作为代替，且推文数据会向跨域友好的 `https://react-tweet.vercel.app/api/tweet/:id` 获取。
 
-同样因为众所周知的原因 Vercel 在内地也是无法访问的，为此可以选择自行部署一个 Vercel Function 并使用自己的域名进行访问，开发者也给出了示例代码，你可以在 [apps/vite-app/api/tweet/](https://github.com/vercel-labs/react-tweet/blob/main/apps/vite-app/api/tweet/%5Btweet%5D.ts) 找到。
+同样因为众所周知的原因 Vercel 在内地也是无法访问的，为此可以选择自行部署一个 Vercel Function 并使用自己的域名进行访问，开发者也给出了示例代码，你可以在 [apps/vite-app/api/tweet/](https://github.com/vercel/react-tweet/blob/main/apps/vite-app/api/tweet/%5Btweet%5D.ts) 找到。
 
 我的博客是部署在 Netlify 上的，因此实现一个 Netlify Function 会是更好的选择，我的实现如下：
 
