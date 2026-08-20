@@ -8,26 +8,17 @@ import PostList from '../components/PostList';
 
 import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 import { getPostGroup } from '../utils/dataUtils';
+import { getCoverImage } from '../utils/image';
 
 const posts = await Promise.all(
 	(await getCollection('blogs'))
 		.sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
 		.map(async (item) => {
 			const { remarkPluginFrontmatter } = await render(item);
-			const img = item.data.img;
 			return {
 				id: item.id,
 				...item.data,
-				// Normalize img to a plain object to avoid serialization issues
-				// with SVG images (Astro wraps SVG images in a function via createSvgComponent)
-				img: img
-					? {
-							src: img.src,
-							width: img.width,
-							height: img.height,
-							format: img.format,
-						}
-					: undefined,
+				img: await getCoverImage(item.data.img),
 				minutesRead: remarkPluginFrontmatter.minutesRead,
 			};
 		}),

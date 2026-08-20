@@ -24,6 +24,10 @@ export default function PostItem({ post }: Props) {
 					<img
 						className="responsive"
 						src={post.img.src}
+						srcSet={post.img.srcset}
+						sizes={post.img.sizes}
+						width={post.img.width}
+						height={post.img.height}
 						alt={post.title}
 					/>
 				</div>
