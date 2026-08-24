@@ -1,14 +1,14 @@
 ---
 import { getCollection, render } from 'astro:content';
 
-import BaseHead from '../components/BaseHead.astro';
-import Footer from '../components/Footer.astro';
-import Banner from '../components/Banner.astro';
-import PostList from '../components/PostList';
+import BaseHead from 'src/components/BaseHead.astro';
+import Footer from 'src/components/Footer.astro';
+import Banner from 'src/components/Banner.astro';
+import PostList from 'src/components/PostList';
 
-import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
-import { getPostGroup } from '../utils/dataUtils';
-import { getCoverImage } from '../utils/image';
+import { SITE_TITLE, SITE_DESCRIPTION } from 'src/consts';
+import { getPostGroup } from 'src/utils/dataUtils';
+import { getCoverImage } from 'src/utils/image';
 
 const posts = await Promise.all(
 	(await getCollection('blogs'))

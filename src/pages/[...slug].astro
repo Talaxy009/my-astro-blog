@@ -2,7 +2,8 @@
 import { type CollectionEntry, getCollection } from 'astro:content';
 import { render } from 'astro:content';
 
-import BlogPost from '../layouts/BlogPost.astro';
+import BlogPost from 'src/layouts/BlogPost.astro';
+import { getCoverImage } from 'src/utils/image';
 
 export async function getStaticPaths() {
 	const posts = await getCollection('blogs');
@@ -23,22 +24,17 @@ const relatedPosts = allPosts
 	.filter((p) => p.id !== post.id && p.data.tags.includes(firstTag))
 	.sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
 	.slice(0, 2);
-const recommendedPosts = relatedPosts.map((item) => {
-	const img = item.data.img;
-	return {
-		id: item.id,
-		...item.data,
-		img: img
-			? {
-					src: img.src,
-					width: img.width,
-					height: img.height,
-					format: img.format,
-				}
-			: undefined,
-		minutesRead: 0,
-	};
-});
+const recommendedPosts = await Promise.all(
+	relatedPosts.map(async (item) => {
+		const img = item.data.img;
+		return {
+			id: item.id,
+			...item.data,
+			img: await getCoverImage(img),
+			minutesRead: 0,
+		};
+	}),
+);
 ---
 
 <BlogPost

@@ -1,14 +1,14 @@
 ---
 import { Image } from 'astro:assets';
 
-import Waline from '../components/Waline';
-import Footer from '../components/Footer.astro';
-import BaseHead from '../components/BaseHead.astro';
-import DarkModeButton from '../components/DarkModeButton';
-import RecommendedPost from '../components/RecommendedPost.astro';
-import { formatTime, formatDate, toISOString } from '../utils/dataUtils';
+import Waline from 'src/components/Waline';
+import Footer from 'src/components/Footer.astro';
+import BaseHead from 'src/components/BaseHead.astro';
+import DarkModeButton from 'src/components/DarkModeButton';
+import RecommendedPost from 'src/components/RecommendedPost.astro';
+import { formatTime, formatDate, toISOString } from 'src/utils/dataUtils';
 
-import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
+import { SITE_TITLE, SITE_DESCRIPTION } from 'src/consts';
 
 import type { CollectionEntry } from 'astro:content';
 
