@@ -10,13 +10,11 @@ import { formatTime, formatDate, toISOString } from 'src/utils/dataUtils';
 
 import { SITE_TITLE, SITE_DESCRIPTION } from 'src/consts';
 
-import type { CollectionEntry } from 'astro:content';
-
 import 'src/styles/article.css';
 import 'src/styles/waline.css';
 import 'src/styles/code.css';
 
-type Props = CollectionEntry<'blogs'> & {
+type Props = Blog & {
 	minutesRead: number;
 	recommendedPosts: Post[];
 };

@@ -7,20 +7,17 @@ import Banner from 'src/components/Banner.astro';
 import PostList from 'src/components/PostList';
 
 import { SITE_TITLE, SITE_DESCRIPTION } from 'src/consts';
-import { getPostGroup } from 'src/utils/dataUtils';
-import { getCoverImage } from 'src/utils/image';
+import { convertBlogToPost, getPostGroup } from 'src/utils/dataUtils';
 
+const blogs = await getCollection('blogs');
 const posts = await Promise.all(
-	(await getCollection('blogs'))
+	blogs
 		.sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
 		.map(async (item) => {
-			const { remarkPluginFrontmatter } = await render(item);
-			return {
-				id: item.id,
-				...item.data,
-				img: await getCoverImage(item.data.img),
-				minutesRead: remarkPluginFrontmatter.minutesRead,
-			};
+			const {
+				remarkPluginFrontmatter: { minutesRead },
+			} = await render(item);
+			return await convertBlogToPost(item, minutesRead);
 		}),
 );
 const { tags, postMap } = getPostGroup(posts, 6);

@@ -3,6 +3,8 @@ import relativeTime from 'dayjs/plugin/relativeTime';
 import utc from 'dayjs/plugin/utc';
 import 'dayjs/locale/zh-cn';
 
+import { getCoverImage } from './image';
+
 dayjs.extend(relativeTime);
 dayjs.extend(utc);
 dayjs.locale('zh-cn');
@@ -11,6 +13,26 @@ type PostGroup = {
 	tags: TagInfo[];
 	postMap: Record<string, Post>;
 };
+
+/**
+ * 转换文章数据
+ * @param blog 通过 getCollection 获取的原始数据
+ * @param minutesRead 阅读时间，默认为 0
+ * @param optimizeImage 是否优化图片，默认为 true
+ * @returns 用于渲染的文章数据
+ */
+export async function convertBlogToPost(
+	blog: Blog,
+	minutesRead: number = 0,
+	optimizeImage = true,
+): Promise<Post> {
+	return {
+		...blog.data,
+		id: blog.id,
+		minutesRead,
+		img: await getCoverImage(blog.data.img, optimizeImage),
+	};
+}
 
 /**
  * 格式化时间

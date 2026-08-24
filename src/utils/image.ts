@@ -6,10 +6,14 @@ import type { ImageMetadata } from 'astro';
  * - 普通图片用 getImage 优化（宽度上限 width，默认 400，保持原始长宽比）
  * - SVG 无法被优化，直接返回原始元数据（仅提取 src/width/height，避免序列化问题）
  */
-export async function getCoverImage(img?: ImageMetadata, width = 400) {
+export async function getCoverImage(
+	img?: ImageMetadata,
+	optimize = true,
+	width = 400,
+) {
 	if (!img) return undefined;
 
-	if (img.format === 'svg') {
+	if (img.format === 'svg' || !optimize) {
 		return {
 			src: img.src,
 			width: img.width,

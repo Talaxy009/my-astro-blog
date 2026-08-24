@@ -1,40 +1,55 @@
 ---
-import { type CollectionEntry, getCollection } from 'astro:content';
-import { render } from 'astro:content';
+import { getCollection, render } from 'astro:content';
 
 import BlogPost from 'src/layouts/BlogPost.astro';
-import { getCoverImage } from 'src/utils/image';
+import { convertBlogToPost } from 'src/utils/dataUtils';
 
 export async function getStaticPaths() {
-	const posts = await getCollection('blogs');
-	return posts.map((post) => ({
-		params: { slug: post.id },
-		props: post,
-	}));
+	const blogs = await getCollection('blogs');
+	const cache = new Map<string, Post[]>();
+
+	return Promise.all(
+		blogs.map(async (post) => {
+			// 获取推荐文章：与当前文章第一个 tag 相同的最新 2 篇文章
+			const firstTag = post.data.tags[0];
+			let recommendedPosts: Post[] = [];
+			if (cache.has(firstTag)) {
+				recommendedPosts = cache
+					.get(firstTag)!
+					.filter((p) => p.id !== post.id)
+					.slice(0, 2);
+			} else {
+				const relatedBlogs = blogs
+					.filter((p) => p.data.tags.includes(firstTag))
+					.sort(
+						(a, b) => b.data.date.valueOf() - a.data.date.valueOf(),
+					)
+					.slice(0, 3);
+				const relatedPosts = await Promise.all(
+					relatedBlogs.map((item) =>
+						convertBlogToPost(item, 0, false),
+					),
+				);
+				cache.set(firstTag, relatedPosts);
+				recommendedPosts = relatedPosts
+					.filter((p) => p.id !== post.id)
+					.slice(0, 2);
+			}
+
+			return {
+				params: { slug: post.id },
+				props: { post, recommendedPosts },
+			};
+		}),
+	);
 }
-type Props = CollectionEntry<'blogs'>;
+type Props = {
+	post: Blog;
+	recommendedPosts: Post[];
+};
 
-const post = Astro.props;
+const { post, recommendedPosts } = Astro.props;
 const { Content, remarkPluginFrontmatter } = await render(post);
-
-// 获取推荐文章：与当前文章第一个 tag 相同的最新 2 篇文章
-const allPosts = await getCollection('blogs');
-const firstTag = post.data.tags[0];
-const relatedPosts = allPosts
-	.filter((p) => p.id !== post.id && p.data.tags.includes(firstTag))
-	.sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
-	.slice(0, 2);
-const recommendedPosts = await Promise.all(
-	relatedPosts.map(async (item) => {
-		const img = item.data.img;
-		return {
-			id: item.id,
-			...item.data,
-			img: await getCoverImage(img),
-			minutesRead: 0,
-		};
-	}),
-);
 ---
 
 <BlogPost

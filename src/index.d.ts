@@ -7,10 +7,12 @@ declare global {
 		slugs: string[][];
 	};
 
-	type Post = Omit<CollectionEntry<'blogs'>['data'], 'img'> & {
+	type Blog = CollectionEntry<'blogs'>;
+
+	type Post = Omit<Blog['data'], 'img'> & {
 		id: string;
 		minutesRead: number;
-		img?: NonNullable<CollectionEntry<'blogs'>['data']['img']> & {
+		img?: NonNullable<Blog['data']['img']> & {
 			srcset?: string;
 			sizes?: string;
 		};
