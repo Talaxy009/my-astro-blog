@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900" fill="none">
+  <defs>
+    <filter id="shadow" x="-30%" y="-30%" width="160%" height="160%">
+      <feDropShadow dx="0" dy="22" stdDeviation="34" flood-color="#5C6B8A" flood-opacity="0.16"/>
+    </filter>
+    <filter id="soft" x="-60%" y="-60%" width="220%" height="220%">
+      <feDropShadow dx="0" dy="10" stdDeviation="18" flood-color="#5C6B8A" flood-opacity="0.18"/>
+    </filter>
+  </defs>
+
+  <rect width="1600" height="900" fill="#E3F2E9"/>
+
+  <!-- 背景装饰圆 -->
+  <circle cx="300" cy="220" r="150" fill="#FFFFFF" fill-opacity="0.5"/>
+  <circle cx="1330" cy="700" r="190" fill="#FFFFFF" fill-opacity="0.45"/>
+  <circle cx="1380" cy="190" r="70" fill="#D9F0E2" fill-opacity="0.55"/>
+  <circle cx="250" cy="720" r="90" fill="#B9E4CC" fill-opacity="0.5"/>
+
+  <!-- 中心 IPA 卡片（应用包） -->
+  <g filter="url(#shadow)">
+    <rect x="610" y="240" width="380" height="420" rx="64" fill="#FFFFFF" stroke="#FFFFFF" stroke-width="6"/>
+  </g>
+
+  <!-- 卡片内的应用图标 -->
+  <g>
+    <rect x="676" y="326" width="248" height="248" rx="56" fill="#93D0B0"/>
+    <path d="M800 388 V480" stroke="#FFFFFF" stroke-width="32" stroke-linecap="round"/>
+    <path d="M754 464 L800 506 L846 464" stroke="#FFFFFF" stroke-width="32" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+  </g>
+
+  <!-- 签名印章 -->
+  <g filter="url(#soft)">
+    <circle cx="968" cy="252" r="92" fill="#FFB4A9"/>
+    <path d="M928 252 L954 278 L1010 220" stroke="#FFFFFF" stroke-width="20" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+  </g>
+</svg>
