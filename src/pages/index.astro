@@ -1,5 +1,6 @@
 ---
 import { getCollection, render } from 'astro:content';
+import { getConfiguredImageService } from 'astro:assets';
 
 import BaseHead from 'src/components/BaseHead.astro';
 import Footer from 'src/components/Footer.astro';
@@ -8,6 +9,11 @@ import PostList from 'src/components/PostList';
 
 import { SITE_TITLE, SITE_DESCRIPTION } from 'src/consts';
 import { convertBlogToPost, getPostGroup } from 'src/utils/dataUtils';
+
+// 在下方并发渲染所有文章（及其正文图片）之前，先串行初始化一次 image service。
+// dev 冷启动的首次请求若让大量 getImage 同时 import('virtual:image-service')，
+// 会触发 image service 尚未就绪的竞态（withastro/astro#16309），这里提前预热可避免。
+await getConfiguredImageService();
 
 const blogs = await getCollection('blogs');
 const posts = await Promise.all(
