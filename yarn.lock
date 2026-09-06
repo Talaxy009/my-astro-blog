@@ -8966,7 +8966,7 @@ __metadata:
     react-dom: "npm:^19.2.7"
     reading-time: "npm:^1.5.0"
     remark-gfm: "npm:^4.0.1"
-    remark-tweet-card: "npm:latest"
+    remark-tweet-card: "npm:^1.1.2"
     sharp: "npm:^0.35.3"
     simple-icons-astro: "npm:^16.1.0"
     typescript: "npm:^6.0.3"
@@ -10229,17 +10229,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"remark-tweet-card@npm:latest":
-  version: 1.1.0
-  resolution: "remark-tweet-card@npm:1.1.0"
+"remark-tweet-card@npm:^1.1.2":
+  version: 1.1.2
+  resolution: "remark-tweet-card@npm:1.1.2"
   dependencies:
     unist-util-visit: "npm:^5.1.0"
-  peerDependencies:
-    unist-util-visit: ^5.1.0
-  peerDependenciesMeta:
-    unist-util-visit:
-      optional: false
-  checksum: 10c0/aa3bf1e5b848593bf4dff57093341f23c586d1dfb9a7dbd98bf09158555ccd9ad9c2aba09bdb4828ada13c874fa6bbe177fa9a35e74cfc4fc601d3596debc523
+  checksum: 10c0/cec85ccf17790fc86b8f1a9fc7a61349a45560861e1d646172cd70f06ef951c21625163f2f283c2a55132e62e1d53edbb2d29bb5b03272d6ca192b1d9a73ee4d
   languageName: node
   linkType: hard
 
