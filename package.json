@@ -1,7 +1,7 @@
 {
 	"name": "my-astro-blog",
 	"type": "module",
-	"packageManager": "yarn@4.17.1",
+	"packageManager": "yarn@4.18.0",
 	"version": "1.0.0",
 	"scripts": {
 		"dev": "astro dev --force",
@@ -24,7 +24,7 @@
 		"@types/react-dom": "^19.2.3",
 		"astro": "7.3.1",
 		"astro-icon": "^1.1.5",
-		"astro-tweet-card": "beta",
+		"astro-tweet-card": "^1.0.0",
 		"cheerio": "^1.2.0",
 		"dayjs": "^1.11.21",
 		"mdast-util-to-string": "^4.0.0",

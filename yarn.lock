@@ -3902,12 +3902,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"astro-tweet-card@npm:beta":
-  version: 1.0.0-beta.1
-  resolution: "astro-tweet-card@npm:1.0.0-beta.1"
+"astro-tweet-card@npm:^1.0.0":
+  version: 1.0.0
+  resolution: "astro-tweet-card@npm:1.0.0"
   peerDependencies:
     astro: ^7.0.0
-  checksum: 10c0/95a7e14abe132d738884035d0fff1c3e9cdaf397f903f79ec9881d2fb9b8c6c434216c5c4a6bf95b1dd54c1ef7e4c649f935cada63d6b54d9d1134b1e540c7f4
+  checksum: 10c0/157b0bfb08db3a184b36ea21cc33d6a8764d1ffe032d224b20d36f4f51aabd5d7e4f0a69e02843e57e776061a43915045126cd3516fa4b904ad744199572dfdb
   languageName: node
   linkType: hard
 
@@ -8965,7 +8965,7 @@ __metadata:
     "@waline/client": "npm:^3.15.2"
     astro: "npm:7.3.1"
     astro-icon: "npm:^1.1.5"
-    astro-tweet-card: "npm:beta"
+    astro-tweet-card: "npm:^1.0.0"
     cheerio: "npm:^1.2.0"
     dayjs: "npm:^1.11.21"
     mdast-util-to-string: "npm:^4.0.0"
