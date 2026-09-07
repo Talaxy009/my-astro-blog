@@ -6,6 +6,8 @@ tags: ['技术']
 img: 'img.png'
 ---
 
+import Tweet from 'src/components/Tweet.astro'
+
 最近发现了一个开源库：react-tweet，由 Vercel Labs 开发。可部署为 Serveless 函数、为网页嵌入推特推文卡片、支持夜间模式、还使用了 SWR 和 React Server Components 在内的新技术，这实在是太酷啦！我整整把玩了一天！
 
 [$card](https://github.com/vercel/react-tweet/)
@@ -186,4 +188,4 @@ export const handler: Handler = async (
 
 最后嵌入一条可爱的二次元纸片人推文：
 
-[$tweet](1653937781549461504)
+<Tweet id="1653937781549461504" />

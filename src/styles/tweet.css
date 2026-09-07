@@ -1,7 +1,0 @@
-:root {
-	--tc-bg: var(--surface-container-lowest);
-	--tc-border: var(--outline-variant);
-	--tc-text: var(--on-surface);
-	--tc-text-muted: var(--on-surface-variant);
-	--tc-link: var(--primary);
-}

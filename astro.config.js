@@ -8,7 +8,6 @@ import { unified } from '@astrojs/markdown-remark';
 import { defineConfig } from 'astro/config';
 import remarkGfm from 'remark-gfm';
 
-import remarkTweetCard from 'remark-tweet-card';
 import remarkLinkCard from './plugins/remark-link-card.js';
 import remarkReadingTime from './plugins/remark-reading-time.js';
 import rehypeCodeWrapper from './plugins/rehype-code-wrapper.js';
@@ -26,19 +25,6 @@ export default defineConfig({
 			remarkPlugins: [
 				remarkGfm,
 				remarkLinkCard,
-				[
-					remarkTweetCard,
-					{
-						text: {
-							replies: '回复',
-							reposts: '转发',
-							quotes: '引用',
-							likes: '喜欢',
-							viewOnX: '在 X 上查看',
-							notFound: '推文不可用',
-						},
-					},
-				],
 				remarkReadingTime,
 			],
 			rehypePlugins: [rehypeCodeWrapper],
@@ -48,6 +34,7 @@ export default defineConfig({
 	image: {
 		layout: 'constrained',
 		responsiveStyles: true,
+		domains: ['pbs.twimg.com'],
 	},
 
 	adapter: netlify(),

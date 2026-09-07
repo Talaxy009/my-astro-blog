@@ -24,6 +24,7 @@
 		"@types/react-dom": "^19.2.3",
 		"astro": "7.3.1",
 		"astro-icon": "^1.1.5",
+		"astro-tweet-card": "beta",
 		"cheerio": "^1.2.0",
 		"dayjs": "^1.11.21",
 		"mdast-util-to-string": "^4.0.0",
@@ -32,7 +33,6 @@
 		"react-dom": "^19.2.7",
 		"reading-time": "^1.5.0",
 		"remark-gfm": "^4.0.1",
-		"remark-tweet-card": "^1.1.2",
 		"sharp": "^0.35.3",
 		"simple-icons-astro": "^16.1.0",
 		"unist-util-visit": "5.1.0"
