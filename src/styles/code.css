@@ -130,3 +130,16 @@ code {
 	background: #7b42bc;
 	color: #ffffff;
 }
+
+.code-wrapper:has(pre[data-language='markdown'])::before,
+.code-wrapper:has(pre[data-language='md'])::before {
+	content: 'markdown';
+	background: #083fa1;
+	color: #ffffff;
+}
+
+.code-wrapper:has(pre[data-language='mdx'])::before {
+	content: 'mdx';
+	background: #f9ac00;
+	color: #1b1f24;
+}
