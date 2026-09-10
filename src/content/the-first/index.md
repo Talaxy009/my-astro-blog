@@ -85,3 +85,4 @@ img: 'img.jpg'
 - 2026/06/07——网站迁移到 Astro
 - 2026/06/08——使用 AI Agent 生成文章封面，并添加相关 skill
 - 2026/07/22——使用 View Transition API 进行页面过渡
+- 2026/09/07——使用 astro-tweet-card 嵌入推特卡片
