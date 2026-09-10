@@ -33,9 +33,7 @@ export default function PostItem({ post }: Props) {
 				</div>
 			)}
 			<div className="post-item-content">
-				<h3 style={{ viewTransitionName: `post-title-${post.id}` }}>
-					{post.title}
-				</h3>
+				<h3>{post.title}</h3>
 				<nav>
 					<button className="chip round">
 						<CalendarIcon className="responsive" />

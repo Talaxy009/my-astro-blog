@@ -62,7 +62,7 @@ const { title, description, img, date, tags } = data;
 		<main>
 			<header class="beer">
 				<div class="topbar">
-					<a href="/" transition:name="site-title">
+					<a href="/">
 						{SITE_TITLE}
 					</a>
 					<DarkModeButton client:load />
@@ -76,7 +76,7 @@ const { title, description, img, date, tags } = data;
 						/>
 					)
 				}
-				<h1 transition:name={`post-title-${id}`}>{title}</h1>
+				<h1>{title}</h1>
 				<div class="row vertical-margin">
 					<time datetime={toISOString(date)}>
 						{formatDate(date)}

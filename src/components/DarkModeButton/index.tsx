@@ -15,19 +15,19 @@ export default function DarkModeButton() {
 	const handleClick = (event: React.MouseEvent) => {
 		if (!document.startViewTransition) return toggle();
 
-		const x = event.clientX;
-		const y = event.clientY;
-		const endRadius = Math.hypot(
-			Math.max(x, innerWidth - x),
-			Math.max(y, innerHeight - y),
-		);
+		// 快照伪元素的坐标空间在高 dpr 下会被错误压缩（crbug 535696703，Chromium 150 起），
+		// 因此用百分比表达圆心，可同时兼容受影响与正常的浏览器
+		const x = (event.clientX / innerWidth) * 100;
+		const y = (event.clientY / innerHeight) * 100;
+		// circle() 中的 100% 小于视口对角线，取 150% 确保圆能覆盖到最远角
+		const endRadius = '150%';
 		// 标记此次为暗色模式过渡，避免页面级 CSS 动画干扰
 		document.documentElement.classList.add('vt-darkmode');
 		const transition = document.startViewTransition(toggle);
 		transition.ready.then(() => {
 			const clipPath = [
-				`circle(0px at ${x}px ${y}px)`,
-				`circle(${endRadius}px at ${x}px ${y}px)`,
+				`circle(0% at ${x}% ${y}%)`,
+				`circle(${endRadius} at ${x}% ${y}%)`,
 			];
 			document.documentElement.animate(
 				{
