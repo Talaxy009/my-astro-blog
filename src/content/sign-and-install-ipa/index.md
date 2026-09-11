@@ -48,7 +48,7 @@ zsign -k 证书文件.p12 -p 密码 -m 描述文件.mobileprovision -o xxx-signe
 
 ## 安装
 
-安装非常简单！可以使用 Apple 官方的 Apple Configurator，在 App Store 就能直接下载到。
+安装非常简单！可以使用 Apple 官方的 [Apple Configurator](https://support.apple.com/zh-cn/apple-configurator)，在 App Store 就能直接下载到。
 
 ![Apple Configurator 界面](ac.png)
 
