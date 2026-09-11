@@ -14,15 +14,17 @@
 ## 目录
 
 ```txt
-├── astro.config.mjs
+├── astro.config.js
 ├── package.json
 ├── plugins          # Markdown 插件
-│   ├── remark-link-card.mjs
-│   ├── remark-reading-time.mjs
-│   └── remark-tweet-card.mjs
+│   ├── remark-link-card.js
+│   ├── remark-reading-time.js
+│   └── rehype-code-wrapper.js
 ├── public           # 静态资源
 │   ├── robots.txt
 │   └── videos
+├── scripts          # 脚本
+│   └── new.js
 ├── src              # 源码
 │   ├── assets
 │   │   └── fonts
