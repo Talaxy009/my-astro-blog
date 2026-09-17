@@ -8,7 +8,8 @@ import Banner from 'src/components/Banner.astro';
 import PostList from 'src/components/PostList';
 
 import { SITE_TITLE, SITE_DESCRIPTION } from 'src/consts';
-import { convertBlogToPost, getPostGroup } from 'src/utils/dataUtils';
+import { getPostGroup } from 'src/utils/dataUtils';
+import { convertBlogToPost } from 'src/utils/postUtils';
 
 // 在下方并发渲染所有文章（及其正文图片）之前，先串行初始化一次 image service。
 // dev 冷启动的首次请求若让大量 getImage 同时 import('virtual:image-service')，

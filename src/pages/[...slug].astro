@@ -2,7 +2,7 @@
 import { getCollection, render } from 'astro:content';
 
 import BlogPost from 'src/layouts/BlogPost.astro';
-import { convertBlogToPost } from 'src/utils/dataUtils';
+import { convertBlogToPost } from 'src/utils/postUtils';
 
 export async function getStaticPaths() {
 	const blogs = await getCollection('blogs');

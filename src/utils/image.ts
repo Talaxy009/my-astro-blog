@@ -1,17 +1,25 @@
 import { getImage } from 'astro:assets';
 import type { ImageMetadata } from 'astro';
+import fs from 'node:fs';
 import path from 'node:path';
 import sharp from 'sharp';
 
 /**
  * 把 Astro 图片引用的 src 还原成磁盘上的绝对路径
- * 输入示例 `/@fs/<绝对路径>?origWidth=1600&origHeight=900&origFormat=jpg`
+ * - dev：`/@fs/D:/repo/src/content/xxx/img.svg?origWidth=1600&...`（Vite 的 fs 前缀 + 查询串）
+ * - build：`/src/content/xxx/img.svg`（相对于项目根目录）
+ * - build：`/_astro/img.<hash>.png`（已是构建产物，落在 outDir 即 dist/ 里）
  */
 export function resolveImageFile(src?: string) {
 	if (!src) return undefined;
+
 	const clean = src.split('?')[0].split('#')[0];
 	if (clean.startsWith('/@fs/')) return clean.slice('/@fs/'.length);
-	return path.join(process.cwd(), clean.replace(/^\/+/, ''));
+
+	const rel = clean.replace(/^\/+/, '');
+	return [path.join(process.cwd(), rel), path.join(process.cwd(), 'dist', rel)].find(
+		(file) => fs.existsSync(file),
+	);
 }
 
 /**
