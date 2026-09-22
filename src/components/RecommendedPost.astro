@@ -12,19 +12,17 @@ const { post } = Astro.props;
 ---
 
 <a href={`/${post.id}`} class="recommended-post s12 m6 l6">
-	{
-		post.img && (
-			<div class="img-box">
-				<Image
-					width={400}
-					height={225}
-					src={post.img}
-					alt={post.title}
-					class="responsive"
-				/>
-			</div>
-		)
-	}
+	{post.img && (
+		<div class="img-box">
+			<Image
+				width={400}
+				height={225}
+				src={post.img}
+				alt={post.title}
+				class="responsive"
+			/>
+		</div>
+	)}
 	<div class="content">
 		<h3>{post.title}</h3>
 		<nav>

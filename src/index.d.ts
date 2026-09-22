@@ -15,6 +15,7 @@ declare global {
 		img?: NonNullable<Blog['data']['img']> & {
 			srcset?: string;
 			sizes?: string;
+			placeholder?: string;
 		};
 	};
 }

@@ -10,10 +10,31 @@
 	transition: var(--sys-transition);
 }
 
-.post-item-body .post-item-img {
+.post-item-img {
 	flex: 1;
 	border-radius: 2rem;
 	background-color: var(--surface-container-high);
+	background-image: var(--cover-ph);
+	background-size: cover;
+	background-position: center;
+}
+
+.post-item-img img {
+	opacity: 0;
+}
+
+.post-item-img img.loaded {
+	opacity: 1;
+}
+
+.post-item-img:has(img.loaded) {
+	background-image: none;
+}
+
+@media (scripting: none) {
+	.post-item-img img {
+		opacity: 1;
+	}
 }
 
 .post-item-body:hover,

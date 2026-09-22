@@ -2,21 +2,21 @@
 import { getCollection, render } from 'astro:content';
 
 import BlogPost from 'src/layouts/BlogPost.astro';
-import { convertBlogToPost } from 'src/utils/dataUtils';
+import { convertBlogToPost } from 'src/utils/postUtils';
 
 export async function getStaticPaths() {
 	const blogs = await getCollection('blogs');
 	const cache = new Map<string, Post[]>();
 
 	return Promise.all(
-		blogs.map(async (post) => {
+		blogs.map(async (blog) => {
 			// 获取推荐文章：与当前文章第一个 tag 相同的最新 2 篇文章
-			const firstTag = post.data.tags[0];
+			const firstTag = blog.data.tags[0];
 			let recommendedPosts: Post[] = [];
 			if (cache.has(firstTag)) {
 				recommendedPosts = cache
 					.get(firstTag)!
-					.filter((p) => p.id !== post.id)
+					.filter((p) => p.id !== blog.id)
 					.slice(0, 2);
 			} else {
 				const relatedBlogs = blogs
@@ -26,36 +26,31 @@ export async function getStaticPaths() {
 					)
 					.slice(0, 3);
 				const relatedPosts = await Promise.all(
-					relatedBlogs.map((item) =>
-						convertBlogToPost(item, 0, false),
-					),
+					relatedBlogs.map((item) => convertBlogToPost(item)),
 				);
 				cache.set(firstTag, relatedPosts);
 				recommendedPosts = relatedPosts
-					.filter((p) => p.id !== post.id)
+					.filter((p) => p.id !== blog.id)
 					.slice(0, 2);
 			}
 
 			return {
-				params: { slug: post.id },
-				props: { post, recommendedPosts },
+				params: { slug: blog.id },
+				props: { blog, recommendedPosts },
 			};
 		}),
 	);
 }
 type Props = {
-	post: Blog;
+	blog: Blog;
 	recommendedPosts: Post[];
 };
 
-const { post, recommendedPosts } = Astro.props;
-const { Content, remarkPluginFrontmatter } = await render(post);
+const { blog, recommendedPosts } = Astro.props;
+const { Content, remarkPluginFrontmatter } = await render(blog);
+const post = await convertBlogToPost(blog, remarkPluginFrontmatter, 1280);
 ---
 
-<BlogPost
-	{...post}
-	minutesRead={remarkPluginFrontmatter.minutesRead}
-	recommendedPosts={recommendedPosts}
->
+<BlogPost post={post} recommendedPosts={recommendedPosts}>
 	<Content />
 </BlogPost>

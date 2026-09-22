@@ -1,5 +1,6 @@
 ---
 import DarkModeButton from './DarkModeButton/index.tsx';
+import BannerSVG from 'src/assets/images/banner.svg';
 
 import { SITE_TITLE, SITE_DESCRIPTION } from 'src/consts';
 
@@ -7,17 +8,17 @@ const { title, description } = Astro.props;
 ---
 
 <div class="beer banner-root">
-	<img alt="banner" class="bannerImg" src="/banner.svg" />
+	<div class="bannerImg">
+		<BannerSVG />
+	</div>
 	<div class="banner-container">
 		<h1>{title || SITE_TITLE}</h1>
 		<span class="description">{description || SITE_DESCRIPTION}</span>
-		{
-			!title && (
-				<a href="/about" class="button fill small-elevate">
-					关于我
-				</a>
-			)
-		}
+		{!title && (
+			<a href="/about" class="button fill small-elevate">
+				关于我
+			</a>
+		)}
 	</div>
 	<div class="topbar">
 		<DarkModeButton client:load />
@@ -33,7 +34,13 @@ const { title, description } = Astro.props;
 		color: #e5ffff;
 	}
 	.bannerImg {
+		max-width: 100%;
+	}
+	.bannerImg svg {
+		display: block;
 		width: 100%;
+		max-width: 100%;
+		height: auto;
 	}
 	.banner-container {
 		justify-content: center;

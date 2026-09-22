@@ -1,6 +1,4 @@
 ---
-import { Image } from 'astro:assets';
-
 import Waline from 'src/components/Waline';
 import Footer from 'src/components/Footer.astro';
 import BaseHead from 'src/components/BaseHead.astro';
@@ -14,13 +12,14 @@ import 'src/styles/article.css';
 import 'src/styles/waline.css';
 import 'src/styles/code.css';
 
-type Props = Blog & {
-	minutesRead: number;
+type Props = {
+	post: Post;
 	recommendedPosts: Post[];
 };
 
-const { data, minutesRead, id, recommendedPosts } = Astro.props;
-const { title, description, img, date, tags } = data;
+const { post, recommendedPosts } = Astro.props;
+
+const { id, title, description, minutesRead, img, date, tags } = post;
 ---
 
 <!doctype html>
@@ -32,9 +31,35 @@ const { title, description, img, date, tags } = data;
 			description={description ?? SITE_DESCRIPTION}
 		/>
 		<style>
-			header img {
+			.post-cover {
 				border-radius: 2rem;
+				overflow: hidden;
 				margin: 1em 0;
+				background-color: var(--surface-container-high);
+				background-image: var(--cover-ph);
+				background-size: cover;
+				background-position: center;
+			}
+			.post-cover img {
+				display: block;
+				width: 100%;
+				height: auto;
+				margin: 0;
+				border-radius: 0;
+				opacity: 0;
+				transition: opacity 0.4s ease;
+			}
+			.post-cover img.loaded {
+				opacity: 1;
+			}
+			/* 图片已加载 → 撤掉占位图，避免从部分半透明封面后面透出来 */
+			.post-cover:has(img.loaded) {
+				background-image: none;
+			}
+			@media (scripting: none) {
+				.post-cover img {
+					opacity: 1;
+				}
 			}
 			.topbar {
 				justify-content: space-between;
@@ -62,54 +87,64 @@ const { title, description, img, date, tags } = data;
 		<main>
 			<header class="beer">
 				<div class="topbar">
-					<a href="/">
-						{SITE_TITLE}
-					</a>
+					<a href="/">{SITE_TITLE}</a>
 					<DarkModeButton client:load />
 				</div>
-				{
-					img && (
-						<Image
-							transition:name={`post-img-${id}`}
+				{img && (
+					<div
+						class="post-cover"
+						style={`view-transition-name: post-img-${id};${
+							img.placeholder
+								? ` --cover-ph: url('${img.placeholder}');`
+								: ''
+						}`}
+					>
+						<img
+							src={img.src}
+							srcset={img.srcset}
+							sizes={img.sizes}
+							width={img.width}
+							height={img.height}
 							alt={title}
-							src={img}
 						/>
-					)
-				}
+					</div>
+				)}
 				<h1>{title}</h1>
 				<div class="row vertical-margin">
-					<time datetime={toISOString(date)}>
-						{formatDate(date)}
-					</time>
-					•
-					<span>{formatTime(minutesRead)}</span>
+					<time datetime={toISOString(date)}>{formatDate(date)}</time>
+					•<span>{formatTime(minutesRead)}</span>
 				</div>
 				<div class="row">
-					{
-						tags.map((tag) => (
-							<button class="chip round">{tag}</button>
-						))
-					}
+					{tags.map((tag) => (
+						<button class="chip round">{tag}</button>
+					))}
 				</div>
 			</header>
 			<article>
 				<slot />
 			</article>
 			<hr />
-			{
-				recommendedPosts.length > 0 && (
-					<section class="recommended beer">
-						<h2>推荐阅读</h2>
-						<div class="grid">
-							{recommendedPosts.map((rec) => (
-								<RecommendedPost post={rec} />
-							))}
-						</div>
-					</section>
-				)
-			}
+			{recommendedPosts.length > 0 && (
+				<section class="recommended beer">
+					<h2>推荐阅读</h2>
+					<div class="grid">
+						{recommendedPosts.map((rec) => (
+							<RecommendedPost post={rec} />
+						))}
+					</div>
+				</section>
+			)}
 			<Waline client:idle path={`/${id}/`} />
 		</main>
 		<Footer />
+		<script is:inline>
+			// 封面渐显：本布局没有水合，用一段内联脚本（逻辑与 PostItem 一致）。
+			// 只负责加 .loaded —— 渐显和撤掉占位图都交给 CSS（含 :has()）。
+			document.querySelectorAll('.post-cover img').forEach((img) => {
+				const show = () => img.classList.add('loaded');
+				if (img.complete) show();
+				else img.addEventListener('load', show, { once: true });
+			});
+		</script>
 	</body>
 </html>

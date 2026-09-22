@@ -10,6 +10,7 @@ import remarkGfm from 'remark-gfm';
 
 import remarkLinkCard from './plugins/remark-link-card.js';
 import remarkReadingTime from './plugins/remark-reading-time.js';
+import remarkCoverPlaceholder from './plugins/remark-cover-placeholder.js';
 import rehypeCodeWrapper from './plugins/rehype-code-wrapper.js';
 
 // https://astro.build/config
@@ -26,6 +27,7 @@ export default defineConfig({
 				remarkGfm,
 				remarkLinkCard,
 				remarkReadingTime,
+				remarkCoverPlaceholder,
 			],
 			rehypePlugins: [rehypeCodeWrapper],
 		}),

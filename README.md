@@ -16,6 +16,7 @@
 ```txt
 ├── astro.config.js
 ├── package.json
+├── tsconfig.json
 ├── plugins          # Markdown 插件
 │   ├── remark-link-card.js
 │   ├── remark-reading-time.js
@@ -25,17 +26,17 @@
 │   └── videos
 ├── scripts          # 脚本
 │   └── new.js
-├── src              # 源码
-│   ├── assets
-│   │   └── fonts
-│   ├── components
-│   ├── content
-│   ├── layouts
-│   ├── pages
-│   ├── store
-│   ├── styles
-│   └── utils
-└── tsconfig.json
+└── src              # 源码
+    ├── assets
+    │   ├── images
+    │   └── fonts
+    ├── components
+    ├── content
+    ├── layouts
+    ├── pages
+    ├── store
+    ├── styles
+    └── utils
 ```
 
 ## 版权

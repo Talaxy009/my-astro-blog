@@ -1,5 +1,6 @@
 ---
 import BaseHead from 'src/components/BaseHead.astro';
+import BannerSVG from 'src/assets/images/banner.svg';
 
 import { SITE_DESCRIPTION } from 'src/consts';
 ---
@@ -11,7 +12,9 @@ import { SITE_DESCRIPTION } from 'src/consts';
 	</head>
 	<body>
 		<div class="beer root">
-			<img alt="banner" class="background-image" src="/banner.svg" />
+			<div class="background-image">
+				<BannerSVG preserveAspectRatio="xMidYMid slice" />
+			</div>
 			<div class="container">
 				<h1>404</h1>
 				<span class="description">
@@ -31,10 +34,13 @@ import { SITE_DESCRIPTION } from 'src/consts';
 		overflow: hidden;
 	}
 	.background-image {
+		position: absolute;
+		inset: 0;
+	}
+	.background-image svg {
+		display: block;
 		width: 100%;
 		height: 100%;
-		object-fit: cover;
-		object-position: center;
 	}
 	.container {
 		justify-content: center;
