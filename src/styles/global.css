@@ -76,48 +76,10 @@ hr {
 
 body {
 	margin: 0;
-	background-color: var(--surface);
+	font-size: 1rem;
 	color: var(--on-surface);
+	background-color: var(--surface);
 	--sys-transition: all 100ms 0ms cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-blockquote {
-	margin-left: -1.75rem;
-	margin-right: 1.75rem;
-	margin-top: 0;
-	padding-bottom: 0;
-	padding-left: 1.42188rem;
-	padding-right: 0;
-	padding-top: 0;
-	margin-bottom: 1.75rem;
-	font-size: 1.20112rem;
-	line-height: 1.75rem;
-	color: var(--on-surface-variant);
-	font-style: italic;
-	border-left: 0.32813rem solid var(--outline);
-}
-
-table {
-	background-color: var(--surface-container);
-	border-collapse: collapse;
-	border-spacing: 0px;
-	border-radius: 12px;
-	overflow: hidden;
-	width: 100%;
-}
-
-tbody tr {
-	border-top: 1px solid var(--outline-variant);
-}
-
-th:nth-child(2n),
-td:nth-child(2n) {
-	background-color: var(--surface-container-low);
-}
-
-th,
-td {
-	padding: 8px;
 }
 
 main {

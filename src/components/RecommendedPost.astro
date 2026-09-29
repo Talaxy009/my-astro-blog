@@ -24,7 +24,7 @@ const { post } = Astro.props;
 		</div>
 	)}
 	<div class="content">
-		<h3>{post.title}</h3>
+		<h4 class="small">{post.title}</h4>
 		<nav>
 			<button class="chip round">
 				<Icon
@@ -71,7 +71,7 @@ const { post } = Astro.props;
 	.content {
 		padding: 0 1rem 1rem;
 	}
-	.content h3 {
+	.content h4 {
 		margin: 0.8rem 0;
 	}
 </style>

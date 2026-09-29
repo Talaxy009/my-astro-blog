@@ -52,7 +52,7 @@ export default function PostItem({ post }: Props) {
 				</div>
 			)}
 			<div className="post-item-content">
-				<h3>{post.title}</h3>
+				<h4 className='small'>{post.title}</h4>
 				<nav>
 					<button className="chip round">
 						<CalendarIcon className="responsive" />

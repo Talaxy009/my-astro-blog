@@ -1,0 +1,95 @@
+/**
+ * 项目自定义 Beer CSS 主题（在 beer.css 末尾引入，顺序原因见该文件）
+ * - 本文件只放“与上游不同”的内容：字体栈 + Material You 调色板
+ * - 调色板是 CSS 变量，默认值来自 beer.css 里的 settings/global.css，这里整体覆盖，
+ *   因此 .beer 之外的样式（global.css / article.css）也能拿到正确的颜色
+ */
+
+/* 覆盖上游默认字体：改用系统字体栈；图标由 astro-icon 提供，不用 Material Symbols */
+:root {
+	--font:
+		'Helvetica Neue', Helvetica, Arial, 'Microsoft Yahei',
+		'Hiragino Sans GB', 'Heiti SC', 'WenQuanYi Micro Hei', sans-serif;
+	--font-icon: none;
+}
+
+:root,
+.light {
+	--primary: #00696d;
+	--on-primary: #ffffff;
+	--primary-container: #6ff6fd;
+	--on-primary-container: #002021;
+	--secondary: #4a6364;
+	--on-secondary: #ffffff;
+	--secondary-container: #cce8e9;
+	--on-secondary-container: #041f21;
+	--tertiary: #4e5f7d;
+	--on-tertiary: #ffffff;
+	--tertiary-container: #d5e3ff;
+	--on-tertiary-container: #081c36;
+	--error: #ba1a1a;
+	--on-error: #ffffff;
+	--error-container: #ffdad6;
+	--on-error-container: #410002;
+	--background: #fafdfc;
+	--on-background: #191c1c;
+	--surface: #f7faf9;
+	--on-surface: #191c1c;
+	--surface-variant: #dae4e5;
+	--on-surface-variant: #3f4949;
+	--outline: #6f7979;
+	--outline-variant: #bec8c9;
+	--shadow: #000000;
+	--scrim: #000000;
+	--inverse-surface: #2d3131;
+	--inverse-on-surface: #eff1f1;
+	--inverse-primary: #4cd9e0;
+	--surface-dim: #d8dada;
+	--surface-bright: #f7faf9;
+	--surface-container-lowest: #ffffff;
+	--surface-container-low: #f2f4f4;
+	--surface-container: #eceeee;
+	--surface-container-high: #e6e9e8;
+	--surface-container-highest: #e0e3e3;
+}
+
+.dark {
+	--primary: #4cd9e0;
+	--on-primary: #003739;
+	--primary-container: #004f52;
+	--on-primary-container: #6ff6fd;
+	--secondary: #b1cccd;
+	--on-secondary: #1b3436;
+	--secondary-container: #324b4c;
+	--on-secondary-container: #cce8e9;
+	--tertiary: #b5c7e9;
+	--on-tertiary: #1f314c;
+	--tertiary-container: #364764;
+	--on-tertiary-container: #d5e3ff;
+	--error: #ffb4ab;
+	--on-error: #690005;
+	--error-container: #93000a;
+	--on-error-container: #ffb4ab;
+	--background: #191c1c;
+	--on-background: #e0e3e3;
+	--surface: #101414;
+	--on-surface: #e0e3e3;
+	--surface-variant: #3f4949;
+	--on-surface-variant: #bec8c9;
+	--outline: #899393;
+	--outline-variant: #3f4949;
+	--shadow: #000000;
+	--scrim: #000000;
+	--inverse-surface: #e0e3e3;
+	--inverse-on-surface: #2d3131;
+	--inverse-primary: #00696d;
+	--surface-dim: #101414;
+	--surface-bright: #363a3a;
+	--surface-container-lowest: #0b0f0f;
+	--surface-container-low: #191c1c;
+	--surface-container: #1d2020;
+	--surface-container-high: #272b2b;
+	--surface-container-highest: #323535;
+
+	--image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR4AWL6//+/FAAAAP//qSv5QwAAAAZJREFUAwAJIAMaJWjIvQAAAABJRU5ErkJggg==);
+}

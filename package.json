@@ -25,6 +25,7 @@
 		"astro": "7.3.2",
 		"astro-icon": "^1.2.0",
 		"astro-tweet-card": "^1.0.0",
+		"beercss": "5.0.3",
 		"cheerio": "^1.2.0",
 		"dayjs": "^1.11.23",
 		"mdast-util-to-string": "^4.0.0",
