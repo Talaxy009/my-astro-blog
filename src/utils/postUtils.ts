@@ -18,7 +18,11 @@ export async function convertBlogToPost(
 		id: blog.id,
 		minutesRead: remarkPluginFrontmatter?.minutesRead || 0,
 		img: imgWidth
-			? await getCoverImage(blog.data.img, remarkPluginFrontmatter?.coverPlaceholder, imgWidth)
+			? await getCoverImage(
+					blog.data.img,
+					remarkPluginFrontmatter?.coverPlaceholder,
+					imgWidth,
+				)
 			: await getImageObject(blog.data.img),
 	};
 }
