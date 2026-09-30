@@ -1,0 +1,43 @@
+.post-cover {
+	overflow: hidden;
+	border-radius: 2rem;
+	background-color: var(--surface-container-high);
+	background-image: var(--cover-ph);
+	background-size: cover;
+	background-position: center;
+}
+
+.post-cover img {
+	display: block;
+	width: 100%;
+	height: auto;
+	margin: 0;
+	opacity: 0;
+	transition: opacity 0.4s ease;
+}
+
+.post-cover img.loaded {
+	opacity: 1;
+}
+
+/* 图片已加载 → 撤掉占位图，避免从半透明封面后面透出来 */
+.post-cover:has(img.loaded) {
+	background-image: none;
+}
+
+/* 列表项：与右侧文字分栏，占满一半宽度（窄屏下由 PostItem 改为纵向排列） */
+.post-cover-list {
+	flex: 1;
+}
+
+/* 文章页：与标题、正文之间留白 */
+.post-cover-article {
+	margin: 1em 0;
+}
+
+/* 无 JS（水合不发生）时直接显示封面 */
+@media (scripting: none) {
+	.post-cover img {
+		opacity: 1;
+	}
+}

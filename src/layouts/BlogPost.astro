@@ -1,5 +1,6 @@
 ---
 import Waline from 'src/components/Waline';
+import PostCover from 'src/components/PostCover';
 import Footer from 'src/components/Footer.astro';
 import BaseHead from 'src/components/BaseHead.astro';
 import DarkModeButton from 'src/components/DarkModeButton';
@@ -38,25 +39,13 @@ const { id, title, description, minutesRead, img, date, tags } = post;
 					<a href="/">{SITE_TITLE}</a>
 					<DarkModeButton client:load />
 				</div>
-				{img && (
-					<div
-						class="post-cover"
-						style={`view-transition-name: post-img-${id};${
-							img.placeholder
-								? ` --cover-ph: url('${img.placeholder}');`
-								: ''
-						}`}
-					>
-						<img
-							src={img.src}
-							srcset={img.srcset}
-							sizes={img.sizes}
-							width={img.width}
-							height={img.height}
-							alt={title}
-						/>
-					</div>
-				)}
+				<PostCover
+					img={img}
+					alt={title}
+					client:load
+					className="post-cover-article"
+					viewTransitionName={`post-img-${id}`}
+				/>
 				<h1>{title}</h1>
 				<div class="row vertical-margin">
 					<time datetime={toISOString(date)}>{formatDate(date)}</time>
@@ -85,51 +74,12 @@ const { id, title, description, minutesRead, img, date, tags } = post;
 			<Waline client:idle path={`/${id}/`} />
 		</main>
 		<Footer />
-		<script is:inline>
-			// 封面渐显：本布局没有水合，用一段内联脚本（逻辑与 PostItem 一致）。
-			// 只负责加 .loaded —— 渐显和撤掉占位图都交给 CSS（含 :has()）。
-			document.querySelectorAll('.post-cover img').forEach((img) => {
-				const show = () => img.classList.add('loaded');
-				if (img.complete) show();
-				else img.addEventListener('load', show, { once: true });
-			});
-		</script>
 	</body>
 </html>
 
 <style>
 	h1 {
 		font-size: 2.4em;
-	}
-	.post-cover {
-		border-radius: 2rem;
-		overflow: hidden;
-		margin: 1em 0;
-		background-color: var(--surface-container-high);
-		background-image: var(--cover-ph);
-		background-size: cover;
-		background-position: center;
-	}
-	.post-cover img {
-		display: block;
-		width: 100%;
-		height: auto;
-		margin: 0;
-		border-radius: 0;
-		opacity: 0;
-		transition: opacity 0.4s ease;
-	}
-	.post-cover img.loaded {
-		opacity: 1;
-	}
-	/* 图片已加载 → 撤掉占位图，避免从部分半透明封面后面透出来 */
-	.post-cover:has(img.loaded) {
-		background-image: none;
-	}
-	@media (scripting: none) {
-		.post-cover img {
-			opacity: 1;
-		}
 	}
 	.topbar {
 		justify-content: space-between;
