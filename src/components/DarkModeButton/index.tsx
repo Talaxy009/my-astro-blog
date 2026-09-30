@@ -58,7 +58,7 @@ export default function DarkModeButton() {
 
 	return (
 		<button
-			className="chip circle large no-border no-margin"
+			className="chip circle large no-border no-margin ripple"
 			onClick={handleClick}
 		>
 			<DarkModeIcon id="moon-icon" />

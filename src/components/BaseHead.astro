@@ -35,6 +35,14 @@ const imageUrl = image ? new URL(image.src, Astro.site) : '/site-image.png';
 	})();
 </script>
 
+<!-- Beer CSS ripple：ripple 由 JS 的委派监听实现，挂载一次即可 -->
+<script>
+	// @ts-ignore -- 该模块无类型声明文件
+	import { updateAllRipples } from 'beercss/dist/cdn/helpers/ripple.js';
+
+	updateAllRipples();
+</script>
+
 <!-- Global Metadata -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
@@ -74,7 +82,8 @@ const imageUrl = image ? new URL(image.src, Astro.site) : '/site-image.png';
 <script
 	is:inline
 	async
-	src="https://www.googletagmanager.com/gtag/js?id=G-6SQBBZZSQN"></script>
+	src="https://www.googletagmanager.com/gtag/js?id=G-6SQBBZZSQN"
+></script>
 <script is:inline>
 	window.dataLayer = window.dataLayer || [];
 	function gtag() {

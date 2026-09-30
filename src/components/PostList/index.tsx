@@ -36,7 +36,7 @@ export default function PostList({ postMap, tags }: Props) {
 
 	return (
 		<div id="list-body" className="beer" ref={ref}>
-			<button className="border">
+			<button className="border ripple">
 				<span>{tags[menu].name}</span>
 				<menu className="no-wrap">
 					{tags.map((tag, index) => (

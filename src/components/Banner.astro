@@ -15,7 +15,7 @@ const { title, description } = Astro.props;
 		<h1 class="small">{title || SITE_TITLE}</h1>
 		<span class="description">{description || SITE_DESCRIPTION}</span>
 		{!title && (
-			<a href="/about" class="button fill small-elevate">
+			<a href="/about" class="button fill small-elevate ripple">
 				关于我
 			</a>
 		)}

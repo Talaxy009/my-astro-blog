@@ -1,7 +1,7 @@
 /**
  * Beer CSS v5.0.3 — 模块化按需引入（20 个模块：settings 3 / helpers 8 / elements 9）
  *   settings  global(非 scoped), reset.scoped, theme.scoped
- *   helpers   alignment, elevate, form, margin, position, responsive, size, wave
+ *   helpers   alignment, elevate, form, margin, position, responsive, ripple, size
  *   elements  button, chip, grid, list, media, menu, navigation, tooltip, typography
  *
  * 顺序必须是 settings → helpers → elements，层内按字母排序
@@ -19,8 +19,8 @@
 @import 'beercss/dist/cdn/helpers/margin.scoped.css';
 @import 'beercss/dist/cdn/helpers/position.scoped.css';
 @import 'beercss/dist/cdn/helpers/responsive.scoped.css';
+@import 'beercss/dist/cdn/helpers/ripple.scoped.css';
 @import 'beercss/dist/cdn/helpers/size.scoped.css';
-@import 'beercss/dist/cdn/helpers/wave.scoped.css';
 
 /* ---------- elements ---------- */
 @import 'beercss/dist/cdn/elements/button.scoped.css';

@@ -49,7 +49,8 @@ export default function Pagination({
 						<button
 							onClick={() => onChange(pageNum)}
 							className={
-								'round' + (pageNum === value ? ' fill' : '')
+								'round ripple' +
+								(pageNum === value ? ' fill' : '')
 							}
 						>
 							{pageNum}
