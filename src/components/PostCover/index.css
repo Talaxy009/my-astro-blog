@@ -1,6 +1,6 @@
 .post-cover {
 	overflow: hidden;
-	border-radius: 2rem;
+	border-radius: 2rem !important;
 	background-color: var(--surface-container-high);
 	background-image: var(--cover-ph);
 	background-size: cover;
