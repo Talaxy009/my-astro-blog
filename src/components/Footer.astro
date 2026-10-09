@@ -7,49 +7,45 @@ const buildTime = new Date();
 ---
 
 <footer>
-	<Link
-		href="/friends"
-		icon={{ name: 'material-symbols:diversity-3-rounded' }}
-	>
-		友情链接
-	</Link>
-	<Link
-		href="/rss.xml"
-		target="_blank"
-		title="RSS Feed"
-		icon={{ name: 'material-symbols:rss-feed-rounded' }}
-	>
-		RSS 订阅
-	</Link>
-	<Link
-		target="_blank"
-		title={'本站构建时间：' + formatDate(buildTime)}
-		href="https://app.netlify.com/projects/talaxy/deploys"
-		icon={{ name: 'material-symbols:sync-rounded' }}
-	>
-		<BuildTimeFromNow client:idle buildTime={buildTime} />
-	</Link>
-	<Link
-		target="_blank"
-		title="CC BY-NC-SA 4.0"
-		href="https://creativecommons.org/licenses/by-nc-sa/4.0/"
-		icon={{ name: 'material-symbols:copyright-outline-rounded' }}
-	>
-		{buildTime.getFullYear() + ' Talaxy'}
-	</Link>
+	<nav>
+		<Link
+			href="/friends"
+			icon={{ name: 'material-symbols:diversity-3-rounded' }}
+		>
+			友情链接
+		</Link>
+		<Link
+			href="/rss.xml"
+			target="_blank"
+			title="RSS Feed"
+			icon={{ name: 'material-symbols:rss-feed-rounded' }}
+		>
+			RSS 订阅
+		</Link>
+		<Link
+			target="_blank"
+			title={'本站构建时间：' + formatDate(buildTime)}
+			href="https://app.netlify.com/projects/talaxy/deploys"
+			icon={{ name: 'material-symbols:sync-rounded' }}
+		>
+			<BuildTimeFromNow client:idle buildTime={buildTime} />
+		</Link>
+		<Link
+			target="_blank"
+			title="CC BY-NC-SA 4.0"
+			href="https://creativecommons.org/licenses/by-nc-sa/4.0/"
+			icon={{ name: 'material-symbols:copyright-outline-rounded' }}
+		>
+			{buildTime.getFullYear() + ' Talaxy'}
+		</Link>
+	</nav>
 </footer>
 <style>
 	footer {
-		display: flex;
-		flex-wrap: wrap;
 		background-color: var(--surface-container);
 		color: var(--on-surface);
 		padding: 3rem 1rem 1rem;
-		justify-content: center;
-		flex-direction: row;
-		align-items: center;
 		position: relative;
-		text-align: center;
 		font-size: 0.8rem;
 		overflow: hidden;
 		gap: 8px;
@@ -61,6 +57,13 @@ const buildTime = new Date();
 		position: absolute;
 		height: 48px;
 		width: 100%;
-		top: -24px;
+		top: -2rem;
+		left: 0;
+	}
+	nav {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: center;
+		gap: 8px;
 	}
 </style>
