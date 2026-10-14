@@ -43,11 +43,10 @@ const { id, title, description, minutesRead, img, date, tags } = post;
 					img={img}
 					alt={title}
 					client:load
-					className="post-cover-article"
 					viewTransitionName={`post-img-${id}`}
 				/>
 				<h1>{title}</h1>
-				<div class="row vertical-margin">
+				<div class="row">
 					<time datetime={toISOString(date)}>{formatDate(date)}</time>
 					•<span>{formatTime(minutesRead)}</span>
 				</div>
@@ -78,6 +77,11 @@ const { id, title, description, minutesRead, img, date, tags } = post;
 </html>
 
 <style>
+	header {
+		gap: 1rem;
+		display: flex;
+		flex-direction: column;
+	}
 	h1 {
 		font-size: 2.4em;
 	}

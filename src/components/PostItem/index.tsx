@@ -21,7 +21,6 @@ export default function PostItem({ post }: Props) {
 			<PostCover
 				img={post.img}
 				alt={post.title}
-				className="post-cover-list"
 				viewTransitionName={`post-img-${post.id}`}
 			/>
 			<div className="post-item-content">

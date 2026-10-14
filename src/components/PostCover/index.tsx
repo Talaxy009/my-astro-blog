@@ -5,16 +5,10 @@ import './index.css';
 type Props = {
 	alt: string;
 	img?: Post['img'];
-	className?: string;
 	viewTransitionName: string;
 };
 
-export default function PostCover({
-	alt,
-	img,
-	className,
-	viewTransitionName,
-}: Props) {
+export default function PostCover({ alt, img, viewTransitionName }: Props) {
 	const imgRef = useRef<HTMLImageElement>(null);
 	const [loaded, setLoaded] = useState(false);
 
@@ -23,11 +17,11 @@ export default function PostCover({
 		if (imgRef.current?.complete) setLoaded(true);
 	}, []);
 
-    if (!img) return null;
+	if (!img) return null;
 
 	return (
 		<div
-			className={`post-cover${className ? ` ${className}` : ''}`}
+			className="post-cover"
 			style={
 				{
 					viewTransitionName,
