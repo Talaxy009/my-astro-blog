@@ -2,14 +2,13 @@
 import BaseHead from 'src/components/BaseHead.astro';
 import Footer from 'src/components/Footer.astro';
 import Banner from 'src/components/Banner.astro';
-import Waline from 'src/components/Waline';
+import Waline from 'src/components/Waline.astro';
 
 import { SITE_TITLE, SITE_DESCRIPTION } from 'src/consts';
 
 import type { MarkdownLayoutProps } from 'astro';
 
 import 'src/styles/article.css';
-import 'src/styles/waline.css';
 import 'src/styles/code.css';
 
 type Props = MarkdownLayoutProps<{
@@ -37,7 +36,7 @@ const path = pathname.endsWith('/') ? pathname : pathname + '/';
 		<main>
 			<Banner title={title} description={description} />
 			<slot />
-			<Waline client:idle path={path} />
+			<Waline path={path} />
 		</main>
 		<Footer />
 	</body>

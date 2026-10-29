@@ -47,10 +47,6 @@ body {
 }
 [data-waline] code,
 [data-waline] pre {
-	margin: 0;
-	padding: 0.2em 0.4em;
-	border-radius: 3px;
-	background: var(--surface-variant);
 	font-size: 85%;
 }
 [data-waline] pre {

@@ -1,0 +1,38 @@
+---
+import type { WalineInitOptions } from '@waline/client';
+
+import 'src/styles/waline.css';
+
+type Props = Pick<WalineInitOptions, 'path'>;
+
+const { path } = Astro.props;
+---
+
+<div id="waline-container" data-path={path}></div>
+
+<script>
+	const container = document.getElementById('waline-container');
+
+	if (container) {
+		let loading = false;
+
+		const load = async () => {
+			if (loading) return;
+			loading = true;
+
+			const { init } = await import('@waline/client');
+
+			init({
+				noRss: true,
+				serverURL: 'https://waline.talaxy.site',
+				emoji: ['https://unpkg.com/@waline/emojis@1.4.0/tieba'],
+				path: container.dataset.path,
+				el: container,
+			});
+		};
+
+		window.requestIdleCallback
+			? window.requestIdleCallback(() => void load(), { timeout: 2000 })
+			: setTimeout(load, 200);
+	}
+</script>

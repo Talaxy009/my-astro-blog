@@ -1,5 +1,5 @@
 ---
-import Waline from 'src/components/Waline';
+import Waline from 'src/components/Waline.astro';
 import PostCover from 'src/components/PostCover';
 import Footer from 'src/components/Footer.astro';
 import BaseHead from 'src/components/BaseHead.astro';
@@ -10,7 +10,6 @@ import { formatTime, formatDate, toISOString } from 'src/utils/dataUtils';
 import { SITE_TITLE, SITE_DESCRIPTION } from 'src/consts';
 
 import 'src/styles/article.css';
-import 'src/styles/waline.css';
 import 'src/styles/code.css';
 
 type Props = {
@@ -70,7 +69,7 @@ const { id, title, description, minutesRead, img, date, tags } = post;
 					</div>
 				</section>
 			)}
-			<Waline client:idle path={`/${id}/`} />
+			<Waline path={`/${id}/`} />
 		</main>
 		<Footer />
 	</body>
